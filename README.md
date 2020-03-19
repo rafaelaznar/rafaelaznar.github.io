@@ -1,3 +1,3 @@
-# rafaelaznar.github.io
+# Quarantine2020
 
 Epidemics simulator.
