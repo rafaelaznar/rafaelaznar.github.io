@@ -20,21 +20,7 @@ var miControlador = miModulo.controller("MiControlador", [
     const WIDTH = 400;
     const HEIGHT = 300;
 
-    if (
-      navigator.language.indexOf("es") > -1 ||
-      navigator.userLanguage.indexOf("es") > -1
-    ) {
-      $scope.language = 1; // 0=english; 1=spanish 2=català
-    } else {
-      if (
-        navigator.language.indexOf("ca") > -1 ||
-        navigator.userLanguage.indexOf("ca") > -1
-      ) {
-        $scope.language = 2; // 0=english; 1=spanish 2=català
-      } else {
-        $scope.language = 0;
-      }
-    }
+    $scope.language = 0;
 
     state = new Array(WIDTH);
     $scope.counter = 1;
