@@ -17,7 +17,7 @@ var miControlador = miModulo.controller("MiControlador", [
   "$scope",
   "$interval",
   function($scope, $interval) {
-    const WIDTH = 400;
+    const WIDTH = 300;
     const HEIGHT = 300;
 
     $scope.language = 0;
