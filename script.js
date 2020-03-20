@@ -315,6 +315,30 @@ var miControlador = miModulo.controller("MiControlador", [
       return hex;
     }
 
+    $scope.canShare = function() {
+      if (navigator.share) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    $scope.share = function() {
+      if (navigator.share) {
+        navigator
+          .share({
+            title: "Quarantine2020",
+            text: "Give a try to this simulator!",
+            url: "https://rafaelaznar.github.io/"
+          })
+          .then(() => console.log("Successful share"))
+          .catch(error => console.log("Error sharing", error));
+      } else {
+        //shareDialog.classList.add("is-open");
+        console.log("Error sharing", error);
+      }
+    };
+
     function loadLanguages() {
       $scope.txtTitle = ["Quarantine2020", "Cuarentena2020", "Quarantena2020"];
       $scope.txtIntro = [
@@ -404,6 +428,11 @@ var miControlador = miModulo.controller("MiControlador", [
       $scope.txtModal5 = ["Sources at: ", "Fuentes en:", "Codi font a: "];
       $scope.txtClose = ["Close", "Cerrar", "Tancar"];
       $scope.txtShare = ["Share", "Compartir", "Compartir"];
+      $scope.txtPleaseShare = [
+        "If you liked this simulator, please, share it on social networks.",
+        "Si te ha gustado este simulador, por favor, compártelo en redes sociales.",
+        "Si t'ha agradat aquest simulador, per favor, comparteix-lo a les xarxes socials."
+      ];
     }
   }
 ]);

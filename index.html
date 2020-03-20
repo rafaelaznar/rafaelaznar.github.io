@@ -67,13 +67,13 @@
                     <div class="col-xl-12 text-center">
                         <h4 ng-show="state=='initial'" class="text-center">{{txtReady[language]}}</h4>
                         <button ng-show="state=='initial'" type="button" class="btn btn-success btn-lg center-block"
-                            id="start" ng-click="start()"> <img src="play.svg" fill="white" alt="" width="20"
+                            id="start" ng-click="start()"> <img src="play.svg" fill="white" alt="" width="25"
                                 style="filter: invert(1);"> {{txtStart[language]}} </button>
                         <button ng-show="state=='paused'" type="button" class="btn btn-success btn-lg center-block"
-                            id="start" ng-click="start()"> <img src="play.svg" fill="white" alt="" width="20"
+                            id="start" ng-click="start()"> <img src="play.svg" fill="white" alt="" width="25"
                                 style="filter: invert(1);"> {{txtContinue[language]}} </button>
                         <button ng-show="state=='processing'" type="button" class="btn btn-primary btn-lg center-block"
-                            id="stop" ng-click="stop()"> <img src="pause.svg" fill="white" alt="" width="20"
+                            id="stop" ng-click="stop()"> <img src="pause.svg" fill="white" alt="" width="25"
                                 style="filter: invert(1);"> {{txtPause[language]}} </button>
                         <button ng-show="state=='paused'" type="button" class="btn btn-danger btn-lg center-block"
                             id="reset" ng-click="reset()"> <img src="refresh-ccw.svg" fill="white" alt="" width="20"
@@ -265,11 +265,9 @@
                             Valencià/Cat.
                         </label>
                         <button type="button" class="btn btn-info btn-lg  text-center" data-toggle="modal"
-                            data-target="#exampleModal">
+                            data-target="#exampleModal"> <img src="user.svg" fill="white" alt="" width="25"
+                                style="filter: invert(1);">
                             {{txtAbout[language]}} </button>
-
-
-
                     </div>
                 </div>
             </div>
@@ -300,16 +298,11 @@
         <div class="row" style="margin-top:10px">
             <div class="col-md-12">
                 <div class="col-md-12 text-center">
-                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-                        data-show-count="false">Tweet</a>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    <iframe
-                        src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Frafaelaznar.github.io%2F&layout=button_count&size=small&width=99&height=20&appId"
-                        width="99" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                        allowTransparency="true" allow="encrypted-media"></iframe>
-                        <br/>
-                    <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-                    <script type="IN/Share" data-url="https://rafaelaznar.github.io"></script>
+                    <button type="button" class="btn btn-primary btn-sm  text-center" ng-show="canShare()"
+                        ng-click="share()"> <img src="share.svg" fill="white" alt="" width="15"
+                            style="filter: invert(1);"> {{txtShare[language]}} </button>
+                    <p ng-show="!canShare()"> <img src="share.svg" fill="white" alt="" width="15">
+                        {{txtPleaseShare[language]}}</p>
                 </div>
             </div>
         </div>
