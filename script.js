@@ -403,6 +403,7 @@ var miControlador = miModulo.controller("MiControlador", [
       ];
       $scope.txtModal5 = ["Sources at: ", "Fuentes en:", "Codi font a: "];
       $scope.txtClose = ["Close", "Cerrar", "Tancar"];
+      $scope.txtShare = ["Share", "Compartir", "Compartir"];
     }
   }
 ]);
