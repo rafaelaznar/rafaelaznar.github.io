@@ -88,16 +88,26 @@
                                 ng-model="checkInmunity">
                             <label class="custom-control-label" for="checkInmunity">{{txtImmunity[language]}}</label>
                         </div>
+
+                        <div class="col-md-12" ng-show="!checkInmunity">
+                            {{txtImmunity[language]}}: <span>{{rangeImmunity}} {{txtDays[language]}}</span>
+                            <input type="range" class="custom-range" min="0" max="50" step="1" ng-model="rangeImmunity">
+                        </div>
+
                         <div class="custom-control custom-checkbox" ng-show="state=='initial'">
                             <input type="checkbox" class="custom-control-input" id="groupedInfectedPopulation"
                                 ng-change="resetInit()" ng-model="groupedInfectedPopulation">
                             <label class="custom-control-label"
                                 for="groupedInfectedPopulation">{{txtGroup[language]}}</label>
                         </div>
+
+
+
                         <div class="alert alert-secondary" role="alert" style="margin-top:20px"
                             ng-hide="state=='initial'">
-                            <h1 class="text-center">{{txtDays[language]}}: {{counter}}</h1>
+                            <h1 class="text-center">{{txtDay[language]}}: {{counter}}</h1>
                         </div>
+
                     </div>
                 </div>
 
@@ -242,7 +252,7 @@
 
             <div class="col-md-5">
                 <div class="col-md-12">
-                    {{txtRecuperation[language]}}: <span id="txtRecuperation">{{rangeRecuperation}}</span>
+                    {{txtRecuperation[language]}}: <span id="txtRecuperation">{{rangeRecuperation}} {{txtDays[language]}}</span>
                     <input type="range" class="custom-range" id="rangeRecuperation" min="0" max="20" step="1"
                         ng-model="rangeRecuperation">
                 </div>

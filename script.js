@@ -38,6 +38,7 @@ var miControlador = miModulo.controller("MiControlador", [
     $scope.rangeContaminationThreshold = 25;
     $scope.rangeTickSeconds = 1;
     $scope.rangeMortality = 3;
+    $scope.rangeImmunity = 20;
 
     $scope.healthy = 0;
     $scope.sick = 0;
@@ -127,14 +128,6 @@ var miControlador = miModulo.controller("MiControlador", [
     loadLanguages();
     $scope.reset();
 
-    function decreaseOneIterationInfected() {
-      for (i = 0; i < WIDTH; i++) {
-        for (j = 0; j < HEIGHT; j++) {
-          state[i][j] = 0;
-        }
-      }
-    }
-
     function init() {
       for (i = 0; i < WIDTH; i++) {
         state[i] = new Array(HEIGHT);
@@ -168,13 +161,22 @@ var miControlador = miModulo.controller("MiControlador", [
     function decreaseOneIterationInfected() {
       for (i = 0; i < WIDTH; i++) {
         for (j = 0; j < HEIGHT; j++) {
-          if ($scope.checkInmunity) {
-            if (state[i][j] == 1) {
-              state[i][j] = -1;
-            }
-          }
-          if (state[i][j] > 0) {
+          if (state[i][j] > 1) {
             state[i][j]--;
+          } else {
+            if ($scope.checkInmunity) {
+              if (state[i][j] == 1) {
+                state[i][j] = -1;
+              }
+            } else {
+              if (state[i][j] == 1) {
+                state[i][j] = -1 * randomInt(1, $scope.rangeImmunity * 2);
+              } else {
+                if (state[i][j] < 0 && state[i][j]>-1000) {
+                  state[i][j]++;
+                }
+              }
+            }
           }
         }
       }
@@ -342,7 +344,7 @@ var miControlador = miModulo.controller("MiControlador", [
     function loadLanguages() {
       $scope.txtTitle = ["Quarantine2020", "Cuarentena2020", "Quarantena2020"];
       $scope.txtIntro = [
-        "Below is an epidemic simulator. Adjust the controls and simulate the infection yourself.",
+        "Below is an epidemics simulator. Adjust the controls and simulate the infection yourself.",
         "A continuación se muestra un simulador de epidemia. Ajuste los controles y simule la infección usted mismo.",
         "A continuació es mostra un simulador d'epidèmia. Ajusteu els controls i simuleu la infecció vosaltres mateix."
       ];
@@ -358,9 +360,9 @@ var miControlador = miModulo.controller("MiControlador", [
         "Agrupar la població inicial infectada"
       ];
       $scope.txtInitial = [
-        "Group the initial infected population",
-        "Agrupar la población infectada inicial",
-        "Agrupar la població inicial infectada"
+        "Initial infected population",
+        "Población infectada inicial",
+        "Població inicial infectada"
       ];
       $scope.txtDay = [
         "Day length in seconds",
@@ -377,9 +379,10 @@ var miControlador = miModulo.controller("MiControlador", [
         "Temps mitjà que els malalts tarden a recuperar-se"
       ];
       $scope.txtContacts = ["Contacts", "Contactos", "Contactes"];
-      $scope.txtDays = ["Day", "Dia", "Dia"];
+      $scope.txtDay = ["Day", "Dia", "Dia"];
       $scope.txtNeighborhood = ["Neighborhood", "Vecindario", "Veïnat"];
       $scope.txtAbout = ["About", "Acerca de", "Contacta"];
+      $scope.txtDays = ["Days", "Dias", "Dies"];
       $scope.txtLoad = [
         "Viral load index for infection",
         "Índice de carga virica para la infección",
