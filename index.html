@@ -298,10 +298,11 @@
         <div class="row" style="margin-top:10px">
             <div class="col-md-12">
                 <div class="col-md-12 text-center">
-                    <img src="share.svg" fill="white" alt="" width="15">
                     <button type="button" class="btn btn-primary btn-sm  text-center" ng-show="canShare()"
-                        ng-click="share()"> {{txtShare[language]}} </button>
-                    <p ng-show="!canShare()"> {{txtPleaseShare[language]}}</p>
+                        ng-click="share()"> <img src="share.svg" fill="white" alt="" width="15"
+                            style="filter: invert(1);"> {{txtShare[language]}} </button>
+                    <p ng-show="!canShare()"> <img src="share.svg" fill="white" alt="" width="15">
+                        {{txtPleaseShare[language]}}</p>
                 </div>
             </div>
         </div>
