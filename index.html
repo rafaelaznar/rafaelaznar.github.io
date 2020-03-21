@@ -64,7 +64,11 @@
             <div class="col-xl-4 col-lg-4 col-md-12">
                 <div class="row">
                     <div class="col-xl-12 text-center">
-                        <h4 ng-show="state=='initial'" class="text-center">{{txtReady[language]}}</h4>
+                        <div class="alert alert-secondary" role="alert">
+                            <h2 ng-show="state=='initial'" class="text-center">{{txtReady[language]}}</h2>
+                            <h2 class="text-center" ng-hide="state=='initial'">{{txtDay[language]}}: {{counter}}</h2>
+                        </div>
+
                         <button ng-show="state=='initial'" type="button" class="btn btn-success btn-lg center-block"
                             id="start" ng-click="start()"> <img src="play.svg" fill="white" alt="" width="25"
                                 style="filter: invert(1);"> {{txtStart[language]}} </button>
@@ -82,24 +86,17 @@
 
                 <div class="row" style="margin-top:10px">
                     <div class="col-md-12 text-center">
-
-                        <div class="alert alert-secondary" role="alert" style="margin-top:20px"
-                            ng-hide="state=='initial'">
-                            <h1 class="text-center">{{txtDay[language]}}: {{counter}}</h1>
+                        <div style="margin-top:10px">
+                            <label> <input type="radio" ng-model="language" ng-value="0" ng-change="languageChange()">
+                                English
+                            </label>
+                            <label> <input type="radio" ng-model="language" ng-value="1" ng-change="languageChange()">
+                                Español
+                            </label>
+                            <label> <input type="radio" ng-model="language" ng-value="2" ng-change="languageChange()">
+                                Valencià/Cat.
+                            </label>
                         </div>
-                        <label> <input type="radio" ng-model="language" ng-value="0" ng-change="languageChange()">
-                            English
-                        </label>
-                        <label> <input type="radio" ng-model="language" ng-value="1" ng-change="languageChange()">
-                            Español
-                        </label>
-                        <label> <input type="radio" ng-model="language" ng-value="2" ng-change="languageChange()">
-                            Valencià/Cat.
-                        </label>
-                        <button type="button" class="btn btn-info btn-lg text-center" data-toggle="modal"
-                            data-target="#exampleModal" style="margin-top:10px"> <img src="user.svg" fill="white" alt=""
-                                width="25" style="filter: invert(1);">
-                            {{txtAbout[language]}} </button>
                         <div class="custom-control custom-checkbox" ng-show="state=='initial'" style="margin-top:10px">
                             <input type="checkbox" class="custom-control-input" id="groupedInfectedPopulation"
                                 ng-change="resetInit()" ng-model="groupedInfectedPopulation">
@@ -284,11 +281,17 @@
         <div class="row" style="margin-top:50px">
             <div class="col-md-12">
                 <div class="col-md-12 text-center">
-                    <button type="button" class="btn btn-primary btn-sm  text-center" ng-show="canShare()"
-                        ng-click="share()"> <img src="share.svg" fill="white" alt="" width="15"
-                            style="filter: invert(1);"> {{txtShare[language]}} </button>
-                    <p ng-show="!canShare()"> <img src="share.svg" fill="white" alt="" width="15">
-                        {{txtPleaseShare[language]}}</p>
+                    <button type="button" class="btn btn-info btn-lg text-center" data-toggle="modal"
+                        data-target="#exampleModal" style="margin-top:10px"> <img src="user.svg" fill="white" alt=""
+                            width="25" style="filter: invert(1);">
+                        {{txtAbout[language]}} </button>
+                    <div style="margin-top:30px">
+                        <button type="button" class="btn btn-primary btn-sm  text-center" ng-show="canShare()"
+                            ng-click="share()"> <img src="share.svg" fill="white" alt="" width="15"
+                                style="filter: invert(1);"> {{txtShare[language]}} </button>
+                        <p ng-show="!canShare()"> <img src="share.svg" fill="white" alt="" width="15">
+                            {{txtPleaseShare[language]}}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -334,7 +337,7 @@
             </div>
         </div>
     </div>
-    
+
 </body>
 
 </html>
