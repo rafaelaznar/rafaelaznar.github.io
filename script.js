@@ -31,7 +31,7 @@ var miControlador = miModulo.controller("MiControlador", [
     $scope.info = "Ready.";
     $scope.state = "initial"; //initial, processing, paused
 
-    $scope.rangeInitialPopulation = 50;
+    $scope.rangeInitialInfectedPopulation = 50;
     $scope.rangeContacts = 5;
     $scope.rangeNeighborhood = 3;
     $scope.rangeRecuperation = 10;
@@ -132,7 +132,7 @@ var miControlador = miModulo.controller("MiControlador", [
       for (i = 0; i < WIDTH; i++) {
         state[i] = new Array(HEIGHT);
         for (j = 0; j < HEIGHT; j++) {
-          if (randomInt(1, 10000) < $scope.rangeInitialPopulation) {
+          if (randomInt(1, 100000) < $scope.rangeInitialInfectedPopulation) {
             state[i][j] = randomInt(1, parseInt($scope.rangeRecuperation) * 2);
           } else {
             state[i][j] = 0;
@@ -142,7 +142,7 @@ var miControlador = miModulo.controller("MiControlador", [
       if ($scope.groupedInfectedPopulation) {
         for (i = 0; i < WIDTH; i++) {
           for (j = 0; j < HEIGHT; j++) {
-            if (randomInt(1, 1000) < $scope.rangeInitialPopulation) {
+            if (randomInt(1, 1000) < $scope.rangeInitialInfectedPopulation) {
               var total = exploreNeigborhood(i, j, 2);
               if (total > 0) {
                 state[i][j] = randomInt(
@@ -172,7 +172,7 @@ var miControlador = miModulo.controller("MiControlador", [
               if (state[i][j] == 1) {
                 state[i][j] = -1 * randomInt(1, $scope.rangeImmunity * 2);
               } else {
-                if (state[i][j] < 0 && state[i][j]>-1000) {
+                if (state[i][j] < 0 && state[i][j] > -1000) {
                   state[i][j]++;
                 }
               }
@@ -286,35 +286,41 @@ var miControlador = miModulo.controller("MiControlador", [
         ctx.clearRect(0, 0, WIDTH, HEIGHT);
         for (i = 0; i < WIDTH; i++) {
           for (j = 0; j < HEIGHT; j++) {
-            if (state[i][j] == -1) {
-              ctx.fillStyle = "green";
+            if (state[i][j] == 0) {
+              ctx.fillStyle = "rgb(0,180,0)";
               ctx.fillRect(i, j, 1, 1);
             }
+            if ($scope.checkInmunity) {
+              if (state[i][j] == -1) {
+                ctx.fillStyle = "rgb(0,255,255)";
+                ctx.fillRect(i, j, 1, 1);
+              }
+            } else {
+              if (state[i][j] <= -1 && state[i][j] > -1000) {
+                ctx.fillStyle =
+                  "rgb(" +
+                  255 - (-1 * state[i][j] * 255) / ($scope.rangeImmunity * 2) +
+                  ",255,255)";
+                ctx.fillRect(i, j, 1, 1);
+              }
+            }
             if (state[i][j] <= -1000) {
-              ctx.fillStyle = "#000000";
+              ctx.fillStyle = 'rgb(0,0,0)';
               ctx.fillRect(i, j, 1, 1);
             }
             if (state[i][j] > 0) {
               ctx.fillStyle =
-                "#" +
-                rgbToHex(
-                  16777215 -
-                    Math.floor(65535 / $scope.rangeRecuperation) * state[i][j]
-                );
+                "rgb(180," +
+                (state[i][j] * 255) / ($scope.rangeRecuperation * 2) +
+                "," +
+                (state[i][j] * 255) / ($scope.rangeRecuperation * 2) +
+                ")";
               ctx.fillRect(i, j, 1, 1);
             }
           }
         }
       }
       count();
-    }
-
-    function rgbToHex(rgb) {
-      var hex = Number(rgb).toString(16);
-      if (hex.length < 2) {
-        hex = "0" + hex;
-      }
-      return hex;
     }
 
     $scope.canShare = function() {
@@ -374,7 +380,7 @@ var miControlador = miModulo.controller("MiControlador", [
       $scope.txtImmune = ["Immune", "Inmunes", "Immunes"];
       $scope.txtDeath = ["Death", "Fallecidos", "Morts"];
       $scope.txtRecuperation = [
-        "Average time for patients to recover",
+        "Average time for sick patients to recover",
         "Tiempo medio que los enfermos tardan en recuperarse",
         "Temps mitjà que els malalts tarden a recuperar-se"
       ];

@@ -114,9 +114,9 @@
                 <div class="row" style="margin-top:10px">
                     <div class="col-md-12">
                         <div class="col-md-12" ng-show="state=='initial'">
-                            {{txtInitial[language]}}: <span id="txtPoblacionInicial">{{rangeInitialPopulation}}</span>
-                            <input type="range" class="custom-range" id="rangeInitialPopulation" min="0" max="100"
-                                step="1" ng-model="rangeInitialPopulation" ng-change="reset()">
+                            {{txtInitial[language]}}: <span id="txtPoblacionInicial">{{rangeInitialInfectedPopulation}}</span>
+                            <input type="range" class="custom-range" id="rangeInitialInfectedPopulation" min="0" max="100"
+                                step="1" ng-model="rangeInitialInfectedPopulation" ng-change="reset()">
                         </div>
                         <div class="col-md-12" ng-show="state=='initial'">
                             {{txtDay[language]}}: <span>{{rangeTickSeconds}}</span>
