@@ -289,33 +289,38 @@ var miControlador = miModulo.controller("MiControlador", [
             if (state[i][j] == 0) {
               ctx.fillStyle = "rgb(0,180,0)";
               ctx.fillRect(i, j, 1, 1);
-            }
-            if ($scope.checkInmunity) {
-              if (state[i][j] == -1) {
-                ctx.fillStyle = "rgb(0,255,255)";
-                ctx.fillRect(i, j, 1, 1);
-              }
             } else {
-              if (state[i][j] <= -1 && state[i][j] > -1000) {
-                ctx.fillStyle =
-                  "rgb(" +
-                  255 - (-1 * state[i][j] * 255) / ($scope.rangeImmunity * 2) +
-                  ",255,255)";
-                ctx.fillRect(i, j, 1, 1);
+              if (state[i][j] < 0) {
+                if ($scope.checkInmunity) {
+                  if (state[i][j] == -1) {
+                    ctx.fillStyle = "rgb(0,255,255)";
+                    ctx.fillRect(i, j, 1, 1);
+                  }
+                } else {
+                  if (state[i][j] <= -1 && state[i][j] > -1000) {
+                    ctx.fillStyle =
+                      "rgb(" +
+                      255 -
+                      (-1 * state[i][j] * 255) / ($scope.rangeImmunity * 2) +
+                      ",255,255)";
+                    ctx.fillRect(i, j, 1, 1);
+                  }
+                }
+                if (state[i][j] <= -1000) {
+                  ctx.fillStyle = "rgb(0,0,0)";
+                  ctx.fillRect(i, j, 1, 1);
+                }
+              } else {
+                if (state[i][j] > 0) {
+                  ctx.fillStyle =
+                    "rgb(180," +
+                    (state[i][j] * 255) / ($scope.rangeRecuperation * 2) +
+                    "," +
+                    (state[i][j] * 255) / ($scope.rangeRecuperation * 2) +
+                    ")";
+                  ctx.fillRect(i, j, 1, 1);
+                }
               }
-            }
-            if (state[i][j] <= -1000) {
-              ctx.fillStyle = 'rgb(0,0,0)';
-              ctx.fillRect(i, j, 1, 1);
-            }
-            if (state[i][j] > 0) {
-              ctx.fillStyle =
-                "rgb(180," +
-                (state[i][j] * 255) / ($scope.rangeRecuperation * 2) +
-                "," +
-                (state[i][j] * 255) / ($scope.rangeRecuperation * 2) +
-                ")";
-              ctx.fillRect(i, j, 1, 1);
             }
           }
         }
