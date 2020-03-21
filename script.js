@@ -313,9 +313,11 @@ var miControlador = miModulo.controller("MiControlador", [
                 //>0 sick
                 ctx.fillStyle =
                   "rgb(180," +
-                  (state[i][j] * 255) / ($scope.rangeRecuperation * 2) +
+                  Math.floor((state[i][j] * 255) /
+                    ($scope.rangeRecuperation * 2)) +
                   "," +
-                  (state[i][j] * 255) / ($scope.rangeRecuperation * 2) +
+                  Math.floor((state[i][j] * 255) /
+                    ($scope.rangeRecuperation * 2)) +
                   ")";
                 ctx.fillRect(i, j, 1, 1);
               }
