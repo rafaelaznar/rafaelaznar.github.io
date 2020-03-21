@@ -158,7 +158,7 @@ var miControlador = miModulo.controller("MiControlador", [
       }
     }
 
-    function decreaseOneIterationInfected() {
+    function decrease() {
       for (i = 0; i < WIDTH; i++) {
         for (j = 0; j < HEIGHT; j++) {
           if (state[i][j] > 1) {
@@ -172,7 +172,9 @@ var miControlador = miModulo.controller("MiControlador", [
               }
             } else {
               if (state[i][j] < 0 && state[i][j] > -1000) {
-                state[i][j]++;
+                if (!$scope.checkInmunity) {
+                  state[i][j]++;
+                }
               }
             }
           }
@@ -236,7 +238,7 @@ var miControlador = miModulo.controller("MiControlador", [
           }
         }
       }
-      decreaseOneIterationInfected();
+      decrease();
       draw();
       progressUpdate();
       $scope.counter++;
@@ -313,11 +315,13 @@ var miControlador = miModulo.controller("MiControlador", [
                 //>0 sick
                 ctx.fillStyle =
                   "rgb(180," +
-                  Math.floor((state[i][j] * 255) /
-                    ($scope.rangeRecuperation * 2)) +
+                  Math.floor(
+                    (state[i][j] * 255) / ($scope.rangeRecuperation * 2)
+                  ) +
                   "," +
-                  Math.floor((state[i][j] * 255) /
-                    ($scope.rangeRecuperation * 2)) +
+                  Math.floor(
+                    (state[i][j] * 255) / ($scope.rangeRecuperation * 2)
+                  ) +
                   ")";
                 ctx.fillRect(i, j, 1, 1);
               }
@@ -364,7 +368,7 @@ var miControlador = miModulo.controller("MiControlador", [
       $scope.txtPause = ["Pause", "Pausar", "Pausar"];
       $scope.txtContinue = ["Continue", "Continuar", "Continuar"];
       $scope.txtReset = ["Reset", "Restablecer", "Restablir"];
-      $scope.txtImmunity = ["Inmunity", "Inmunidad", "Inmunitat"];
+      $scope.txtImmunity = ["Total Inmunity", "Inmunidad total", "Inmunitat total"];
       $scope.txtGroup = [
         "Group the initial infected population",
         "Agrupar la población infectada inicial",
