@@ -164,17 +164,15 @@ var miControlador = miModulo.controller("MiControlador", [
           if (state[i][j] > 1) {
             state[i][j]--;
           } else {
-            if ($scope.checkInmunity) {
-              if (state[i][j] == 1) {
+            if (state[i][j] == 1) {
+              if ($scope.checkInmunity) {
                 state[i][j] = -1;
+              } else {
+                state[i][j] = -1 * randomInt(1, $scope.rangeImmunity * 2);
               }
             } else {
-              if (state[i][j] == 1) {
-                state[i][j] = -1 * randomInt(1, $scope.rangeImmunity * 2);
-              } else {
-                if (state[i][j] < 0 && state[i][j] > -1000) {
-                  state[i][j]++;
-                }
+              if (state[i][j] < 0 && state[i][j] > -1000) {
+                state[i][j]++;
               }
             }
           }
@@ -291,35 +289,35 @@ var miControlador = miModulo.controller("MiControlador", [
               ctx.fillRect(i, j, 1, 1);
             } else {
               if (state[i][j] < 0) {
-                if ($scope.checkInmunity) {
-                  if (state[i][j] == -1) {
+                if (state[i][j] <= -1 && state[i][j] > -1000) {
+                  //immune
+                  if ($scope.checkInmunity) {
                     ctx.fillStyle = "rgb(0,255,255)";
                     ctx.fillRect(i, j, 1, 1);
-                  }
-                } else {
-                  if (state[i][j] <= -1 && state[i][j] > -1000) {
+                  } else {
                     ctx.fillStyle =
                       "rgb(" +
-                      255 -
-                      (-1 * state[i][j] * 255) / ($scope.rangeImmunity * 2) +
+                      Math.floor(
+                        255 -
+                          (-1 * state[i][j] * 255) / ($scope.rangeImmunity * 2)
+                      ) +
                       ",255,255)";
                     ctx.fillRect(i, j, 1, 1);
                   }
-                }
-                if (state[i][j] <= -1000) {
+                } else {
+                  //<= -1000 dead
                   ctx.fillStyle = "rgb(0,0,0)";
                   ctx.fillRect(i, j, 1, 1);
                 }
               } else {
-                if (state[i][j] > 0) {
-                  ctx.fillStyle =
-                    "rgb(180," +
-                    (state[i][j] * 255) / ($scope.rangeRecuperation * 2) +
-                    "," +
-                    (state[i][j] * 255) / ($scope.rangeRecuperation * 2) +
-                    ")";
-                  ctx.fillRect(i, j, 1, 1);
-                }
+                //>0 sick
+                ctx.fillStyle =
+                  "rgb(180," +
+                  (state[i][j] * 255) / ($scope.rangeRecuperation * 2) +
+                  "," +
+                  (state[i][j] * 255) / ($scope.rangeRecuperation * 2) +
+                  ")";
+                ctx.fillRect(i, j, 1, 1);
               }
             }
           }
