@@ -1,3 +1,1 @@
-# Quarantine2020
-
-Epidemics simulator.
+# Rafael Aznar personal website
