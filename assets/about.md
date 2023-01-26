@@ -3,8 +3,9 @@
 
 # about me
 
-* Hi there! I work as a professor in the CIPFP Ausiàs March de València (Spain)
-* I’m over fifties and i've been working as a teacher for more than twenty years
+* Hi there! I work as a professor in the CIPFP Ausiàs March de València (Spain).
+* I’m over fifties and i've been working as a teacher for more than twenty years.
 * I'm a full stack developer. I started learning about programming computers when I was 15 years old, and I haven’t stopped coding ever since.
-
+* I program in java and javascript / typescript.
+* You can email me: rafaaznar at gmail dot com.
 
