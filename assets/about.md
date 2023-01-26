@@ -6,6 +6,6 @@
 * Hi there! I work as a professor in the CIPFP Ausiàs March de València (Spain).
 * I’m over fifties and i've been working as a teacher for more than twenty years.
 * I'm a full stack developer. I started learning about programming computers when I was 15 years old, and I haven’t stopped coding ever since.
-* I program in java and javascript / typescript.
+* I currently program in java and javascript / typescript, but i've been working in many languages such as php, visual basic, pascal, c, c++, lisp, prolog ... even assembler.
 * You can email me: rafaaznar at gmail dot com.
 
