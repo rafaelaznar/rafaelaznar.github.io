@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="MiAngularApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="Rafael Aznar personal website">
+    <meta property="og:description" content="Rafael Aznar personal website">
+    <!-- <meta property="og:image" content="https://rafaelaznar.github.io/thumbnail.jpg"> -->
+    <meta property="og:url" content="https://rafaelaznar.github.io/">
+    <meta property="og:site_name" content="Rafael Aznar personal website">
+    <meta name="google-site-verification" content="5F3pm6LuOE_YBVg4SnwJf7CeuTiAKeKPV9lcS0VDeic" />
+    <meta name="author" content="Rafael Aznar" />
+    <meta name="description" content="Rafael Aznar personal website" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/bootstrap.min.css" />
+    <script src="/angular.min.js"></script>
+    <script src="/jquery.min.js"></script>
+    <script src="/bootstrap.min.js"></script>
+    <script src="/script.js"></script>
+    <style>
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1200px;
+            }
+        }
+    </style>
+    <title>Rafael Aznar personal website</title>
+    <link rel="shortcut icon" type="image/png" href="/coronavirus.png" />
+</head>
+
+<body ng-controller="MiControlador" style="margin-top: 20px;">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6 text-center">
+                <h2>{{txtTitle[language]}}</h2>
+                <p>{{txtIntro[language]}}</p>
+                <p><a href="https://github.com/rafaelaznar">github</a></p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-6 text-center">
+                <div style="margin-top:10px">
+                    <label> <input type="radio" ng-model="language" ng-value="0" ng-change="languageChange()">
+                        English
+                    </label>
+                    <label> <input type="radio" ng-model="language" ng-value="1" ng-change="languageChange()">
+                        Español
+                    </label>
+                    <label> <input type="radio" ng-model="language" ng-value="2" ng-change="languageChange()">
+                        Valencià/Cat.
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <div ng-include src="'/index.html'"></div>
+        
+    </div>
+
+</body>
+
+</html>
