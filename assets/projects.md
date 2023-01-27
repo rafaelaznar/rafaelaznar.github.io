@@ -1,6 +1,6 @@
 | [home](home.md) | [daw](daw.md) | [about](about.md) |
 
-# Projects
+# projects
 
 ## amoeba
 
