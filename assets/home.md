@@ -1,4 +1,4 @@
-| [projects](projects.md) | [daw](daw.md) | [about](about.md) |
+| [projects](projects.md) | [blaster](blaster.md) | [about](about.md) |
 
 # my stuff
 
