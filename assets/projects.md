@@ -1,4 +1,4 @@
-| [home](home.md) | [daw](daw.md) | [about](about.md) |
+| [home](home.md) | [blaster](blaster.md) | [about](about.md) |
 
 # projects
 
