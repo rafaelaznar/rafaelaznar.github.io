@@ -1,3 +1,5 @@
+![Blaster Project](blaster.png)
+
 **BLASTER** is an educational project to learn web development.
 
 I chose this title because a BLASTER is a fictional weapon that appears for example in Star Wars and Blade Runner and that has connotations related to science fiction that I consider to be are attractive in the context of the project. But also BLASTER contains the initials of the phrase let's Build, Learn And Share all TogetherER. And I have chosen this title because it summarizes the keys to the project, which I explain:
