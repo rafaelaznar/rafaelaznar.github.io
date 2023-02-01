@@ -1,3 +1,5 @@
+| [home](home.md) | [about](about.md) |
+
 <p align="center"><img src="https://rafaelaznar.github.io/img/blaster.png" width="500"></p>
 
 **BLASTER** is an educational project to learn web development.
