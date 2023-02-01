@@ -1,4 +1,4 @@
-![Blaster Project](https://rafaelaznar.github.io/img/blaster.png)
+<img src="https://rafaelaznar.github.io/img/blaster.png" width="100">
 
 **BLASTER** is an educational project to learn web development.
 
