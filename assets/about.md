@@ -1,5 +1,5 @@
 
-| [home](home.md) | [projects](projects.md) | [blaster](blaster.md) |
+| [home](home.md) | [blaster](blaster.md) |
 
 # about me
 
