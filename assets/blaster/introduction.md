@@ -2,7 +2,11 @@
 
 **BLASTER** is an educational project to learn web development.
 
-I chose this title because a BLASTER is a fictional weapon that appears for example in Star Wars and Blade Runner and that has connotations related to science fiction that I consider to be are attractive in the context of the project. But also BLASTER contains the initials of the phrase let's Build, Learn And Share all TogetherER. And I have chosen this title because it summarizes the keys to the project, which I explain:
+I chose this title because a BLASTER is a fictional weapon that appears for example in Star Wars and Blade Runner and that has connotations related to science fiction that I consider to be are attractive in the context of this project. But also BLASTER contains the initials of the phrase: 
+
+>"let's Build, Learn And Share all TogetherER". 
+
+And I have chosen this title because it summarizes the keys to this project, which I explain:
 
 Firstly, I wanted to write the title in English because I want to highlight the importance of the English language for developers. Knowledge of the English language is very important to develop software since the standards and documentations of the products are in English. Many of the problems that developers find in our work have already been solved previously, and developers have shared the solution most of the time in English (on reference websites such as Stack Overflow).
 
