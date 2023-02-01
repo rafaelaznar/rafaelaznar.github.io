@@ -1,4 +1,4 @@
-| [home](home.md) | [blaster](baster.md) | [about](about.md) |
+| [home](../home.md) | [blaster](../baster.md) | [about](../about.md) |
 
 <p align="center"><img src="https://rafaelaznar.github.io/img/blaster.png" width="500"></p>
 
