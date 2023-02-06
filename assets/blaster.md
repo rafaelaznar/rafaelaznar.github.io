@@ -8,8 +8,19 @@ BLASTER stands for let's Build, Learn And Share all TogethER (“Vamos a constru
 
 [Introduction to BLASTER](blaster/introduction.md)
 
-
 ## WildCart
+### Development in progress
+
+Now I'm working on this:
+* internationalization (in progress)
+* adding user comments for product (in progress)
+* changin
+Next mailstone:
+* I'm going to end all working in progress and fork the project to obtain a new version that I wil call TrollEyes. I'm going to simplify the forked WildCart (Trolleyes) for the students to learn. TrollEyes is going to be the easy link in the learning chain betwwen blogBuster and WildCart.
+* Trolleyes will remain autentication with Java server sessions.
+* WildCart will implement JWT autentication (taken from Andamio Server)
+
+### Links
 * [WildCart code - server (Java, Spring Boot, MySQL)](https://github.com/rafaelaznar/wildCartSBServer2021)
 * [WildCart code - fron-end (angular)](https://github.com/rafaelaznar/wildCartSBServer2021)
 
