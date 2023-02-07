@@ -1,8 +1,8 @@
-| [blaster](blaster.md) | [about](about.md) |
+| [blaster](blaster.md) | [about](about.md) | 
 
-# my stuff
+# stuff in my slate
 
-Here I will explain my personal projects. It's a work in progress ...
+* [linkster - my curated collection of links](https://rafaelaznar.github.io/linkster/) [linkster project](https://github.com/rafaelaznar/linkster)
 
 ## amoeba
 
