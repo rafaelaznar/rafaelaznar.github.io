@@ -2,7 +2,7 @@
 
 # stuff in my slate
 
-* [linkster - my curated collection of links](https://rafaelaznar.github.io/linkster/) - [linkster project in github](https://github.com/rafaelaznar/linkster) - [linkster index](https://github.com/rafaelaznar/linkster/blob/main/README.md)
+* [linkster - my curated collection of links](https://rafaelaznar.github.io/linkster/) | [linkster project in github](https://github.com/rafaelaznar/linkster) | [linkster index](https://github.com/rafaelaznar/linkster/blob/main/README.md)
 
 ## amoeba
 
