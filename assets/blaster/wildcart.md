@@ -1,3 +1,5 @@
+| [home](../home.md) | [blaster](../blaster.md) | [about](../about.md) |
+
 # WildCart
 
 WildCart is the main project in BLASTER.
