@@ -1,6 +1,6 @@
 | [home](../home.md) | [blaster](../blaster.md) | [about](../about.md) |
 
-<p align="center"><img src="https://rafaelaznar.github.io/img/blaster.png" width="500"></p>
+# Introduction to BLASTER
 
 **BLASTER** is an educational project to learn web development.
 
@@ -22,3 +22,5 @@ Finally, the word **"SHARE"** refers to the importance that I want students to g
 
 * For all members of the group to be benefit from the open source of a complex web application that they had developed by themselves. And also they had a model on which to rely to generate their own applications.
 * And so that future classmates could use the system to learn through its study, modification and expansion. Students are encouraging to learn by building together but with the intention of sharing through MIT license so that other people can benefit from our efforts.
+
+<p align="center"><img src="https://rafaelaznar.github.io/img/blaster.png" width="500"></p>
