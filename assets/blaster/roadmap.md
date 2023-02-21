@@ -2,7 +2,7 @@
 
 # Roadmap to BLASTER
 
-Remember BLASTER methodology aims to learn by building projects. 
+BLASTER methodology aims to learn by building projects. 
 But you can't learn if you don't have enough foundations to understand the projects. 
 In this roadmap I propose an itinerary so that with my help you will be able to write complex AJAX web projects in just a few months.
 
