@@ -9,3 +9,18 @@
 * I'm a full stack developer. I started learning about programming computers when I was 15 years old, and I haven’t stopped coding ever since. I currently program in java and javascript / typescript, but I've been working for years in many languages such as basic, dbase, pascal, modula 2, delphi, visual basic, c, c++, lisp, prolog, php, java, javascript, typescript ... even assembler. I also know about frameworks and tecnologies directly related to the Internet and the Web.
 * I'm both native valencian and spanish speaker and I communicate well in english.
 * You can email me: rafaaznar at gmail dot com.
+
+```
+
+HIRE ME
+
+In addition to my teaching work, I carry out technical advice for companies: 
+
+- funcional analysis, 
+- process redesign, 
+- process optimization, 
+- development of management programs completely adapted to the needs of the client, using up to date technologies
+
+You can hire me remotely at rafaaznar at gmail dot com for very competitive fees.
+
+```
