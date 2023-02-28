@@ -9,7 +9,7 @@
 * [AES: Simple encrypter and decrypter (MIT)(use @ your own risk)](https://rafaelaznar.github.io/aes/)
 * enefteen: Learn asyncronous events while generate some funny NFTs. (finished-unreleased)
 * amoeba: Amoeba is just a genetic algorithm developed in java to aproximate points by functions. (finished-unreleased)
-* soccerpedia: soccer scores analysis (finished-unreleased)
+* soccerpedia: Soccer scores analysis (finished-unreleased)
 
 <!--
 ## posts examples
