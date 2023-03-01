@@ -10,17 +10,15 @@
 * I'm both native valencian and spanish speaker and I communicate well in english.
 * You can email me: rafaaznar at gmail dot com.
 
-```
 
-HIRE ME
 
-In addition to my teaching work, I carry out technical advice for companies: 
+>### HIRE ME
+>In addition to my teaching work, I carry out technical advice for companies: 
+>- funcional analysis, 
+>- process redesign, 
+>- process optimization, 
+>- development of management programs completely adapted to the needs of the client, using up to date technologies
+>
+>You can hire me remotely for very competitive fees.
 
-- funcional analysis, 
-- process redesign, 
-- process optimization, 
-- development of management programs completely adapted to the needs of the client, using up to date technologies
 
-You can hire me remotely at rafaaznar at gmail dot com for very competitive fees.
-
-```
