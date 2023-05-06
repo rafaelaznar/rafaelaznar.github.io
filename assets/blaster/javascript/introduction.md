@@ -60,3 +60,16 @@ Overall, the history of JavaScript is a story of rapid evolution and growth, dri
 9. Cross-platform: JavaScript can be run on a variety of platforms, including web browsers, servers, and mobile devices.
 
 10. Large developer community: JavaScript has a large and active developer community, with a vast ecosystem of libraries, frameworks, and tools available for use.
+
+## Platforms
+
+The most common environments for JavaScript development:
+
+1. Browser: The browser is the most common environment for JavaScript development, as it is the primary way in which JavaScript is used to create interactive and dynamic web pages. All modern web browsers support JavaScript, and they provide a built-in JavaScript engine that can interpret and execute JavaScript code. Some popular browsers for JavaScript development include Chrome, Firefox, Safari, and Edge.
+
+2. Node.js: Node.js is a server-side JavaScript runtime environment that allows developers to run JavaScript code outside of the browser. It is built on top of the Chrome V8 JavaScript engine and provides a set of APIs for server-side programming. Node.js can be used to create web servers, command-line tools, and other types of server-side applications. Some popular frameworks for Node.js development include Express, Nest.js, and Hapi.
+
+For client-side web development, the browser environment is essential, while for server-side development, Node.js is a popular choice.
+
+
+
