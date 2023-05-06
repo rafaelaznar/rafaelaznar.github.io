@@ -36,3 +36,27 @@ Some of the key developments in the history of JavaScript include:
 - 2019: The latest version of the ECMAScript specification, ECMAScript 2019 (ES2019), is released, adding new features like the `Array.flat()` and `Array.flatMap()` methods.
 
 Overall, the history of JavaScript is a story of rapid evolution and growth, driven by the needs of web developers and the changing landscape of the internet. Today, JavaScript is an essential part of web development, and its importance is only likely to grow in the years to come.
+
+
+
+## Characteristics of the JavaScript language
+
+1. High-level language: JavaScript is a high-level programming language, meaning that it is designed to be easily read and understood by humans.
+
+2. Object-oriented: JavaScript is an object-oriented language, which means it uses objects to represent data and behavior.
+
+3. Interpreted: JavaScript is an interpreted language, meaning that the code is executed by an interpreter rather than being compiled into machine code.
+
+4. Dynamic: JavaScript is a dynamically typed language, which means that variable types are determined at runtime.
+
+5. Functional: JavaScript supports functional programming paradigms, such as higher-order functions and closures.
+
+6. Client-side scripting: JavaScript is commonly used for client-side scripting, allowing for interactive web pages and user interfaces.
+
+7. Browser integration: JavaScript is integrated into most web browsers, making it an essential part of web development.
+
+8. Asynchronous programming: JavaScript supports asynchronous programming through mechanisms like callbacks and promises, allowing for non-blocking code execution.
+
+9. Cross-platform: JavaScript can be run on a variety of platforms, including web browsers, servers, and mobile devices.
+
+10. Large developer community: JavaScript has a large and active developer community, with a vast ecosystem of libraries, frameworks, and tools available for use.
