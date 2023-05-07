@@ -1033,3 +1033,57 @@ console.log(double(5)); // output: 10
 ```
 
 In this example, `multiply()` is a function that multiplies two numbers together. We create a new function `double` using `bind()`, passing in `null` as the `this` value and `2` as the first argument to pre-set the `x` parameter to `2`. When we call `double(5)`, it passes `5` as the `y` parameter and returns the result of `2 * 5`, which is `10`.
+
+
+## Functions and objects
+
+In JavaScript, constructor functions are used to create objects of the same type by using the `new` keyword. A constructor function is essentially a regular function with a special name that is used to create objects.
+
+Here's an example of a constructor function for creating Person objects:
+
+```javascript
+function Person(name, age, gender) {
+  this.name = name;
+  this.age = age;
+  this.gender = gender;
+  
+  this.sayHello = function() {
+    console.log(`Hello, my name is ${this.name}.`);
+  };
+}
+```
+
+The `Person` function is a constructor function because it's intended to be called with the `new` keyword to create new `Person` objects. The constructor function takes three parameters: `name`, `age`, and `gender`. Inside the constructor function, we define properties on the newly created object (`this.name`, `this.age`, and `this.gender`) and a method (`this.sayHello()`).
+
+To create a new `Person` object using the `Person` constructor function, we can do the following:
+
+```javascript
+const person1 = new Person('Alice', 30, 'female');
+```
+
+The `new` keyword creates a new `Person` object and assigns it to the `person1` variable. The arguments passed to the constructor function (`'Alice'`, `30`, `'female'`) are used to set the `name`, `age`, and `gender` properties of the new object.
+
+Constructor functions are a way of creating templates for objects with similar properties and methods. They allow us to create multiple objects of the same type easily and efficiently.
+
+## Debug
+
+In JavaScript, the `debugger` statement is used to pause the execution of code and allow the developer to inspect the current state of the program. When the `debugger` statement is encountered, the JavaScript runtime will pause the execution of the code and open the debugging tools of the browser or the environment in which the code is running.
+
+The `debugger` statement can be used in any JavaScript code, including functions, loops, and conditional statements. When the code execution reaches the `debugger` statement, the developer can inspect variables, step through the code line by line, set breakpoints, and execute expressions in the current scope.
+
+Here's an example of how to use the `debugger` statement in JavaScript:
+
+```
+function sum(a, b) {
+  debugger;  // Pause execution and open the debugger tools
+  return a + b;
+}
+
+let result = sum(2, 3);
+console.log(result);
+```
+
+In this example, the `debugger` statement is placed inside the `sum` function. When the `sum` function is called with arguments `2` and `3`, the execution will pause at the `debugger` statement and open the debugging tools. The developer can then inspect the values of `a` and `b`, step through the code, and check the return value of the function.
+
+It's important to note that the `debugger` statement should be used with caution and removed from production code, as it can significantly slow down the execution of the code.
+
