@@ -6,7 +6,7 @@ Functions in JavaScript are blocks of code that can be reused throughout a progr
 
 A function in JavaScript can be defined using the `function` keyword, followed by a name, a list of parameters in parentheses, and a block of code in curly braces. Here's an example:
 
-```
+```javascript
 function sayHello(name) {
   console.log(`Hello, ${name}!`);
 }
@@ -16,7 +16,7 @@ In this example, the function `sayHello` takes one parameter `name`, and logs a 
 
 Functions in JavaScript can also return a value using the `return` keyword. Here's an example:
 
-```
+```javascript
 function addNumbers(a, b) {
   return a + b;
 }
@@ -26,7 +26,7 @@ In this example, the function `addNumbers` takes two parameters `a` and `b`, and
 
 Functions in JavaScript can be called by their name, followed by a list of arguments in parentheses. Here's an example:
 
-```
+```javascript
 sayHello("John"); // logs "Hello, John!"
 let result = addNumbers(3, 5); // result is 8
 ```
