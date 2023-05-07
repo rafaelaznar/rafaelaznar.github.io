@@ -958,4 +958,78 @@ console.log(addOneAndDouble(3)); // Output: 8
 
 In the example above, the `addOne` and `double` functions are composed into a new function called `addOneAndDouble` using the `compose` function. When `addOneAndDouble` is called with a value of `3`, it first passes `3` to the `addOne` function, which returns `4`. This value is then passed to the `double` function, which returns `8`.
 
+## Function Methods
 
+In JavaScript, the `apply()` and `call()` methods are used to call a function with a specified `this` value and arguments provided as an array or a list of arguments, respectively.
+
+The `apply()` method takes two parameters: the first parameter is the `this` value, and the second parameter is an array or an array-like object containing arguments to be passed to the function being called. Here is an example:
+
+```
+function sum(a, b) {
+  return a + b;
+}
+
+const numbers = [2, 3];
+
+const result = sum.apply(null, numbers); // result will be 5
+```
+
+In this example, we use `apply()` to call the `sum()` function with the `this` value of `null` and the `numbers` array as the arguments.
+
+The `call()` method is similar to `apply()`, but instead of passing an array of arguments, we pass the arguments directly as individual parameters. Here is an example:
+
+```
+function multiply(a, b) {
+  return a * b;
+}
+
+const result = multiply.call(null, 2, 3); // result will be 6
+```
+
+In this example, we use `call()` to call the `multiply()` function with the `this` value of `null` and the arguments `2` and `3`.
+
+Both `apply()` and `call()` are useful when we want to borrow methods from other objects or use functions as methods of other objects. They are also commonly used with the `arguments` object to pass a variable number of arguments to a function.
+
+
+In JavaScript, the `bind()` method is used to create a new function with the same body as an existing function, but with a specified `this` value and possibly pre-set arguments. It does not execute the function, but rather returns a new function that can be invoked later. 
+
+The syntax for `bind()` is as follows:
+
+```javascript
+functionName.bind(thisValue, arg1, arg2, ...);
+```
+
+The first argument `thisValue` is the value that should be passed as the `this` value when the function is invoked. The remaining arguments, `arg1`, `arg2`, and so on, are optional and represent pre-set values for the function's parameters.
+
+Here is an example that demonstrates how to use `bind()` to set the `this` value of a function:
+
+```javascript
+const obj = {
+  name: "John",
+  age: 25,
+};
+
+function greeting() {
+  console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+}
+
+const boundGreeting = greeting.bind(obj);
+
+boundGreeting(); // output: "Hello, my name is John and I am 25 years old."
+```
+
+In this example, `greeting()` is a function that outputs a string using the `this` keyword. We create an object `obj` with `name` and `age` properties, and then create a new function `boundGreeting` using `bind()`, passing in `obj` as the first argument to set `this` value to `obj`. When `boundGreeting()` is called, it uses `obj` as the `this` value and outputs the string with the correct values.
+
+`bind()` can also be used to create a new function with pre-set arguments. Here is an example:
+
+```javascript
+function multiply(x, y) {
+  return x * y;
+}
+
+const double = multiply.bind(null, 2);
+
+console.log(double(5)); // output: 10
+```
+
+In this example, `multiply()` is a function that multiplies two numbers together. We create a new function `double` using `bind()`, passing in `null` as the `this` value and `2` as the first argument to pre-set the `x` parameter to `2`. When we call `double(5)`, it passes `5` as the `y` parameter and returns the result of `2 * 5`, which is `10`.
