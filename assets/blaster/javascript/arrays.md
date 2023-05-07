@@ -202,6 +202,33 @@ numbers.splice(2, 0, 'two-point-five'); // add 'two-point-five' starting at inde
 console.log(numbers); // output: [1, 2, 'two-point-five', 3, 4, 5]
 ```
 
+#### delete vs splice
+
+Both `delete` and `splice` can be used to remove elements from an array in JavaScript, but they work differently.
+
+`delete` is a unary operator that removes a specific element from an array by setting it to `undefined`, but it does not change the length of the array or reindex the remaining elements. For example:
+
+```
+const arr = ['apple', 'banana', 'orange'];
+delete arr[1];
+console.log(arr); // Output: ["apple", undefined, "orange"]
+console.log(arr.length); // Output: 3
+```
+
+As you can see, the element at index `1` has been removed, but it has been replaced with `undefined` instead of being completely removed. The length of the array is still `3`, and the remaining elements are not reindexed.
+
+On the other hand, the `splice` method changes the contents of an array by removing or replacing existing elements and/or adding new elements, and it also changes the length of the array and reindexes the remaining elements. For example:
+
+```
+const arr = ['apple', 'banana', 'orange'];
+arr.splice(1, 1);
+console.log(arr); // Output: ["apple", "orange"]
+console.log(arr.length); // Output: 2
+```
+
+In this example, the `splice` method is used to remove the element at index `1` from the array. The first argument (`1`) is the index at which to start changing the array, and the second argument (`1`) is the number of elements to remove. The length of the array is now `2`, and the remaining elements are reindexed to fill the gap left by the removed element.
+
+
 ### Concat method
 
 The `concat()` method is a built-in function in JavaScript that is used to merge two or more arrays into a single array. The `concat()` method does not change the original arrays. Instead, it returns a new array that contains the combined elements of the original arrays. 
@@ -227,6 +254,21 @@ console.log(newArray); // Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
 In this example, the `concat()` method is used to merge three arrays (`array1`, `array2`, and `array3`) into a single array (`newArray`). The resulting array contains all the elements of the original arrays in the order they were specified as arguments.
+
+### Join method
+
+In JavaScript, the `join()` method is used to convert an array into a string. It takes an optional argument that specifies the separator to be used between the array elements in the resulting string. If the separator is not specified, the default separator is a comma (`,`).
+
+Here's an example of how to use the `join()` method:
+
+```javascript
+const array = ['apple', 'banana', 'orange'];
+const string = array.join(', '); // 'apple, banana, orange'
+```
+
+In this example, the `join()` method is called on the `array` variable with a comma and a space (`', '`) as the separator argument. The resulting string is assigned to the `string` variable.
+
+It's important to note that the `join()` method does not modify the original array. It simply returns a new string.
 
 ### Slice method
 
@@ -486,6 +528,18 @@ red
 As we can see, the loop also iterated over the `color` property, which is not an index of the array.
 
 Therefore, it is recommended to use a `for` loop or a `forEach` method to loop through arrays in JavaScript.
+
+When iterating through an array in JavaScript, it's important to be aware of a few potential pitfalls and exclusions:
+
+1. Non-enumerable properties: If an array has non-enumerable properties, such as those created with Object.defineProperty(), these properties will not be included when iterating with a for...in loop or forEach() method.
+
+2. Sparse arrays: Sparse arrays are those with empty slots between the actual elements. When iterating through a sparse array, these empty slots will be skipped. 
+
+3. Changing the array length during iteration: If you add or remove elements from the array during iteration, unexpected results may occur. For example, if you add an element to the end of an array while iterating through it with a for loop, the new element will not be visited.
+
+4. Adding or deleting properties: Adding or deleting properties to an array using bracket notation or Object.defineProperty() will not affect the length of the array, and may cause unexpected behavior when iterating through the array.
+
+To avoid these exclusions, it's best to use the for loop or the forEach() method to iterate through arrays in JavaScript, and to avoid modifying the array or its properties during iteration.
 
 ### forEach method
 
@@ -910,3 +964,36 @@ const result = numbers.every(num => num > 3);
 console.log(result); // Output: false
 ```
 
+## Multi-dimensional arrays
+
+In JavaScript, a multidimensional array is an array that contains other arrays, forming a grid or matrix. The elements of the multidimensional array can be accessed using multiple indices, corresponding to the dimensions of the array.
+
+To create a multidimensional array in JavaScript, you can simply create an array of arrays, where each inner array represents a row or a column of the matrix. Here's an example:
+
+```
+const matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+```
+
+In this example, `matrix` is a 3x3 matrix, where each row is an inner array. You can access individual elements of the matrix using multiple indices:
+
+```
+console.log(matrix[0][0]); // outputs 1
+console.log(matrix[1][2]); // outputs 6
+console.log(matrix[2][1]); // outputs 8
+```
+
+You can also use loops to iterate over the elements of a multidimensional array. For example, to print all the elements of the matrix, you can use a nested loop:
+
+```
+for (let i = 0; i < matrix.length; i++) {
+  for (let j = 0; j < matrix[i].length; j++) {
+    console.log(matrix[i][j]);
+  }
+}
+```
+
+In this loop, the outer loop iterates over the rows of the matrix, and the inner loop iterates over the columns of each row.
