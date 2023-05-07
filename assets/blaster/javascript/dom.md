@@ -40,13 +40,13 @@ The Document Object Model (DOM) is a programming interface for web documents tha
 
 The root of the DOM tree is called the "document object", which represents the entire document. From there, the DOM is organized into a hierarchy of nodes, with each node representing a specific element or attribute of the document. Some of the most common types of nodes in the DOM include:
 
-1. Element Nodes: These represent the actual HTML elements on the page, such as <div>, <p>, <h1>, etc. Element nodes can have child nodes, such as other elements or text nodes.
+1. Element Nodes: These represent the actual HTML elements on the page, such as `<div>`, `<p>`, `<h1>`, etc. Element nodes can have child nodes, such as other elements or text nodes.
 
-2. Text Nodes: These represent the actual text content within an element node, such as the text inside a <p> tag.
+2. Text Nodes: These represent the actual text content within an element node, such as the text inside a `<p>` tag.
 
-3. Attribute Nodes: These represent the attributes of an HTML element, such as the "src" attribute of an <img> tag.
+3. Attribute Nodes: These represent the attributes of an HTML element, such as the "src" attribute of an `<img>` tag.
 
-4. Comment Nodes: These represent comments within the HTML document, enclosed by <!-- and -->.
+4. Comment Nodes: These represent comments within the HTML document, enclosed by `<!-- and -->`.
 
 The relationship between nodes in the DOM is defined by the parent-child relationship. Each node has a parent node, except for the document object which is the root of the tree. Nodes can also have sibling nodes, which are other nodes that share the same parent.
 
