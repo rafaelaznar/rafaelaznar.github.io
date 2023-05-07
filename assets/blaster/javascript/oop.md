@@ -103,7 +103,7 @@ In JavaScript, objects are collections of properties, which can be either data p
 
 Object properties can be defined using either dot notation or bracket notation. For example:
 
-```
+```javascript
 const myObject = {};
 myObject.property1 = 'value1'; // dot notation
 myObject['property2'] = 'value2'; // bracket notation
@@ -111,7 +111,7 @@ myObject['property2'] = 'value2'; // bracket notation
 
 Object methods are functions that are defined as properties of an object. For example:
 
-```
+```javascript
 const myObject = {
   myMethod: function() {
     console.log('Hello, world!');
@@ -123,7 +123,7 @@ myObject.myMethod(); // prints "Hello, world!"
 
 Methods can also be defined using shorthand notation:
 
-```
+```javascript
 const myObject = {
   myMethod() {
     console.log('Hello, world!');
