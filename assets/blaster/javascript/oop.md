@@ -1,7 +1,5 @@
 # Object oriented programming
 
-Sure! Here's a more detailed index to master OOP in JavaScript:
-
 ## Introduction to OOP:
 ### What is OOP and why is it important?
 OOP stands for Object-Oriented Programming, which is a programming paradigm that focuses on organizing code into objects that contain data and methods. In OOP, objects are instances of classes, which define the properties and behaviors of the objects.
