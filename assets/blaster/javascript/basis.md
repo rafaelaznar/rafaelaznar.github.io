@@ -310,6 +310,51 @@ function example() {
 
 In addition to literals and variables, JavaScript also provides a range of operators and expressions that can be used to manipulate and combine values. These include arithmetic operators (such as `+`, `-`, `*`, and `/`), comparison operators (such as `==`, `!=`, `<`, and `>`), and logical operators (such as `&&`, `||`, and `!`).
 
+## Castings and conversions
+
+JavaScript provides various ways to convert one data type to another. These are known as type conversions or type castings. Type conversions are important because they allow us to use values of one type as another type, which can be useful in various programming scenarios.
+
+Here are some common ways to convert between data types in JavaScript:
+
+1. **String conversion:** You can convert any data type to a string using the `toString()` method. For example:
+
+   ```javascript
+   const num = 123;
+   const str = num.toString(); // str is "123"
+   ```
+
+2. **Number conversion:** You can convert a string to a number using the `Number()` or `parseInt()` methods. For example:
+
+   ```javascript
+   const str = "123";
+   const num1 = Number(str); // num1 is 123
+   const num2 = parseInt(str); // num2 is 123
+   ```
+
+   You can also use the `parseFloat()` method to convert a string to a floating-point number.
+
+3. **Boolean conversion:** You can convert any data type to a boolean using the `Boolean()` method. In general, any value that is considered "truthy" in JavaScript will be converted to `true`, and any value that is considered "falsy" will be converted to `false`. For example:
+
+   ```javascript
+   const num1 = 123;
+   const bool1 = Boolean(num1); // bool1 is true
+
+   const str = "";
+   const bool2 = Boolean(str); // bool2 is false
+   ```
+
+4. **Explicit conversion:** You can also use explicit type conversions to convert values between types using the `String()`, `Number()`, and `Boolean()` functions. For example:
+
+   ```javascript
+   const num = 123;
+   const str = String(num); // str is "123"
+
+   const bool = true;
+   const num1 = Number(bool); // num1 is 1
+   const num2 = Number(false); // num2 is 0
+   ```
+
+It's important to understand the different ways to convert between data types in JavaScript to avoid unexpected results and errors in your code.
 
 ## Operators
 
@@ -474,6 +519,36 @@ console.log(message);
 In this example, the value of the `message` variable will be `"You are not old enough to vote yet."` because the condition (`age >= 18`) is false.
 
 Conditional statements are an essential part of any programming language, and understanding them is crucial for creating complex programs in JavaScript.
+### valueof and tostring
+
+`valueOf()` and `toString()` are methods available for JavaScript's `String` object.
+
+The `valueOf()` method returns the primitive value of a `String` object. It's similar to the `toString()` method, but instead of returning a string, it returns the primitive value of the object.
+
+For example, consider the following code:
+
+```javascript
+const str = "hello world";
+const primitive = str.valueOf();
+console.log(primitive);
+```
+
+The `valueOf()` method returns the primitive value of the `str` object, which is the string "hello world". The `console.log()` statement will output "hello world" to the console.
+
+On the other hand, the `toString()` method returns a string representing the object. If the object is already a string, it simply returns the string itself.
+
+For example, consider the following code:
+
+```javascript
+const str = "hello world";
+const strObj = new String(str);
+const strRepresentation = strObj.toString();
+console.log(strRepresentation);
+```
+
+The `toString()` method returns a string representation of the `strObj` object, which is the string "hello world". The `console.log()` statement will output "hello world" to the console.
+
+In general, you should use `valueOf()` when you want to retrieve the primitive value of a `String` object, and `toString()` when you want to convert the object to a string representation.
 
 ## Loops:
 In JavaScript, loops are used to repeat a block of code multiple times. There are several types of loops in JavaScript, including the `for` loop, the `while` loop, and the `do...while` loop.
