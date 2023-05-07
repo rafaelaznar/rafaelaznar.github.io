@@ -1,6 +1,6 @@
 # Object oriented programming
 
-## Introduction to OOP:
+## Introduction to OOP
 ### What is OOP and why is it important?
 OOP stands for Object-Oriented Programming, which is a programming paradigm that focuses on organizing code into objects that contain data and methods. In OOP, objects are instances of classes, which define the properties and behaviors of the objects.
 
