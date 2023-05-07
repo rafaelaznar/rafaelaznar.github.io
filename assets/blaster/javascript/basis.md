@@ -650,3 +650,19 @@ In this example, the loop will repeat 10 times, and the value of `i` will be pri
 
 Loops are an essential part of any programming language, and understanding how they work is crucial for creating complex programs in JavaScript. It's also important to be aware of the potential pitfalls of loops, such as infinite loops, which can cause a program to crash or become unresponsive.
 
+## Debugging
+
+Debugging is a crucial skill for developers, and there are several techniques that can help in the process of debugging functions in JavaScript. Here are some common techniques:
+
+1. Console.log(): This is the most basic and widely used technique for debugging in JavaScript. It allows you to print out the value of a variable or the result of an expression at a specific point in the code to check if it's what you expect. You can also use console.group() and console.groupEnd() to group console.log() outputs and make them more organized.
+
+2. Breakpoints: This technique allows you to stop the execution of the code at a specific point and inspect the state of the code. You can set breakpoints in the browser developer tools or in an IDE like Visual Studio Code. Once the breakpoint is hit, you can inspect the value of variables, step through the code, and more.
+
+3. Debugging tools: There are many tools available for debugging JavaScript code. These tools allow you to set breakpoints, inspect variables, and step through the code. Some of the most popular tools include Chrome DevTools, Firefox Developer Tools, and Visual Studio Code.
+
+4. Stack trace: When an error occurs in your code, you can use the stack trace to see the sequence of function calls that led up to the error. This can help you identify the source of the problem and fix it.
+
+5. Unit tests: Writing unit tests can help you catch errors and bugs in your code early on. By testing individual functions or code modules in isolation, you can ensure that they are working as expected and catch any errors before they propagate to other parts of the code.
+
+Overall, the key to effective debugging is to be systematic and methodical. Take a structured approach to debugging, use the right tools, and be persistent in your efforts to find and fix the problem.
+
