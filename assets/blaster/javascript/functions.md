@@ -72,7 +72,7 @@ var myFunction = function() {
 ```
 A function expression is a function that is created as part of a larger expression. It can be assigned to a variable or passed as an argument to another function. Function expressions are created using the "function" keyword, followed by the list of parameters (enclosed in parentheses), and the function body (enclosed in curly braces). For example:
 
-```
+```javascript
 const square = function(x) {
   return x * x;
 };
@@ -101,7 +101,7 @@ Arrow functions are a shorthand syntax for writing function expressions in JavaS
 
 Here's an example of a traditional function expression that takes two parameters and returns their sum:
 
-```
+```javascript
 let sum = function(a, b) {
   return a + b;
 };
@@ -109,7 +109,7 @@ let sum = function(a, b) {
 
 Using an arrow function, the same function can be written like this:
 
-```
+```javascript
 let sum = (a, b) => a + b;
 ```
 
@@ -123,7 +123,7 @@ Arrow functions have a few key differences compared to traditional function expr
 
 Here's an example that demonstrates how arrow functions work:
 
-```
+```javascript
 let person = {
   name: 'John',
   age: 30,
@@ -145,7 +145,7 @@ Arrow functions can be used in various scenarios where you need to define a func
 
 1. As a callback function: Arrow functions are often used as a callback function for methods like `map()`, `filter()`, `reduce()`, etc. For example:
 
-```
+```javascript
 const numbers = [1, 2, 3, 4, 5];
 const squaredNumbers = numbers.map(num => num ** 2);
 console.log(squaredNumbers); // [1, 4, 9, 16, 25]
@@ -153,14 +153,14 @@ console.log(squaredNumbers); // [1, 4, 9, 16, 25]
 
 2. As a shorthand for a function expression: Arrow functions can be used to replace function expressions that are only used once. For example:
 
-```
+```javascript
 const add = (x, y) => x + y;
 console.log(add(2, 3)); // 5
 ```
 
 3. As a lexical this: Arrow functions use the `this` value of their surrounding context, whereas regular functions have their own `this` value. This makes arrow functions useful when working with objects and class methods. For example:
 
-```
+```javascript
 const person = {
   name: "John",
   age: 30,
@@ -178,7 +178,7 @@ person.sayAge();
 
 4. As a concise method definition in objects: Arrow functions can be used to define concise methods in objects. For example:
 
-```
+```javascript
 const person = {
   name: "John",
   sayHello() {
@@ -203,7 +203,7 @@ In JavaScript, the `this` keyword refers to the object that the function is a me
 
 When a function is called as a method of an object, `this` refers to the object itself. For example:
 
-```
+```javascript
 const person = {
   firstName: 'John',
   lastName: 'Doe',
@@ -223,7 +223,7 @@ Arrow functions, on the other hand, do not have their own `this` value. Instead,
 
 For example:
 
-```
+```javascript
 const person = {
   firstName: 'John',
   lastName: 'Doe',
@@ -302,7 +302,7 @@ In JavaScript, function parameters are the values that a function accepts as inp
 
 For example, consider the following function:
 
-```
+```javascript
 function add(a, b) {
   return a + b;
 }
@@ -310,7 +310,7 @@ function add(a, b) {
 
 In this example, `a` and `b` are the parameters of the `add` function. They are used to define what the function expects as input. When the function is called, the values passed as arguments are assigned to `a` and `b`.
 
-```
+```javascript
 let result = add(2, 3); // assigns 2 to a and 3 to b
 console.log(result); // outputs 5
 ```
@@ -319,7 +319,7 @@ JavaScript also supports default parameter values. Default values can be specifi
 
 For example:
 
-```
+```javascript
 function greet(name = 'world') {
   console.log(`Hello, ${name}!`);
 }
@@ -334,7 +334,7 @@ In JavaScript, function arguments refer to the values that are passed to a funct
 
 A function can have zero or more arguments. When a function is defined, you can specify the arguments it takes by listing them within parentheses, separated by commas. For example:
 
-```
+```javascript
 function multiply(num1, num2) {
   return num1 * num2;
 }
@@ -344,7 +344,7 @@ In this example, the `multiply` function takes two arguments, `num1` and `num2`.
 
 When the function is called, the values for the arguments are passed in the same order as they are listed in the function definition. For example:
 
-```
+```javascript
 multiply(2, 3); // returns 6
 ```
 
@@ -433,7 +433,7 @@ Function scope refers to the scope of a variable that is declared within a funct
 
 For example:
 
-```
+```javascript
 function myFunction() {
   var myVariable = "Hello, world!";
   console.log(myVariable); // Output: "Hello, world!"
@@ -477,7 +477,7 @@ IIFE stands for Immediately Invoked Function Expression, and it is a JavaScript 
 
 To create an IIFE, you simply define a function and then immediately execute it using parentheses. Here's an example:
 
-```
+```javascript
 (function() {
   // code goes here
 })();
@@ -496,7 +496,7 @@ The concept of lexical scope means that a function has access to all the variabl
 
 For example, consider the following code:
 
-```
+```javascript
 function outer() {
   var a = 10;
   function inner() {
@@ -515,7 +515,7 @@ Lexical scope is an important concept in JavaScript because it allows for modula
 
 Here's an example of an IIFE function creating a lexical scope in JavaScript:
 
-```
+```javascript
 (function outerFunction() {
   const outerVar = "I'm in the outer function";
   
@@ -533,7 +533,7 @@ In JavaScript, we can use lexical scoping to create objects with methods by defi
 
 Here's an example:
 
-```
+```javascript
 function createCounter() {
   let count = 0;
 
@@ -570,7 +570,7 @@ In JavaScript, a closure is a combination of a function and the lexical environm
 
 Here is an example to illustrate closures:
 
-```
+```javascript
 function outer() {
   const message = 'Hello';
 
@@ -591,7 +591,7 @@ Closures are commonly used to create private variables and functions in JavaScri
 
 Here's a more complex example of closures in JavaScript:
 
-```
+```javascript
 function outerFunction() {
   let counter = 0;
 
@@ -618,7 +618,7 @@ When `closure` is invoked, it increments the `counter` variable and logs its val
 
 Here's an example of a closure in JavaScript that uses a timer:
 
-```
+```javascript
 function delayMessage(message, delay) {
   return function() {
     setTimeout(function() {
@@ -642,7 +642,7 @@ When the `delayedHello` and `delayedGoodbye` functions are called, they invoke t
 
 Here is an example of closure in JavaScript:
 
-```
+```javascript
 function outerFunction(x) {
   return function(y) {
     return function(z) {
@@ -671,7 +671,7 @@ Partial application can be achieved in JavaScript by using closures. A closure i
 
 By using closures, we can define a partial application function that returns a new function that is partially applied with the given arguments. For example, suppose we have a function `add` that takes two arguments and returns their sum:
 
-```
+```javascript
 function add(x, y) {
   return x + y;
 }
@@ -679,7 +679,7 @@ function add(x, y) {
 
 We can create a partially applied version of this function using closures as follows:
 
-```
+```javascript
 function partialAdd(x) {
   return function(y) {
     return add(x, y);
@@ -701,7 +701,7 @@ By using closures and partial application, we can create more flexible and reusa
 
 Currying is a technique that involves breaking down a function that takes multiple arguments into a series of functions that each take only one argument. The resulting functions can be composed to form the original function. For example:
 
-```
+```javascript
 function add(x) {
   return function(y) {
     return x + y;
@@ -723,7 +723,7 @@ In JavaScript, the `return` statement is used to end the execution of a function
 
 The syntax of the `return` statement is as follows:
 
-```
+```javascript
 return [expression];
 ```
 
@@ -731,7 +731,7 @@ The `expression` is optional, and it is used to specify the value that should be
 
 Here is an example of a simple function that uses a `return` statement:
 
-```
+```javascript
 function addNumbers(a, b) {
   return a + b;
 }
@@ -743,7 +743,7 @@ In this example, the `addNumbers` function takes two arguments and returns their
 
 It is worth noting that the `return` statement not only returns a value but also ends the execution of a function. Any code that appears after the `return` statement is ignored. Here is an example:
 
-```
+```javascript
 function sayHello(name) {
   if (!name) {
     return "Please provide a name";
@@ -761,7 +761,7 @@ In JavaScript, an implicit return refers to the implicit or automatic return of 
 
 This behavior is often used in arrow functions, which can have a concise syntax for one-liner functions that don't require a block statement. For example, instead of writing:
 
-```
+```javascript
 function double(num) {
   return num * 2;
 }
@@ -769,13 +769,13 @@ function double(num) {
 
 We can use an arrow function with an implicit return like this:
 
-```
+```javascript
 const double = num => num * 2;
 ```
 
 Here, the expression `num * 2` is automatically returned without the need for the `return` keyword. Note that if we were to add a block statement to the arrow function, we would need to use an explicit `return` statement:
 
-```
+```javascript
 const double = num => {
   return num * 2;
 }
@@ -787,7 +787,7 @@ In JavaScript, a function can only return a single value. However, it is possibl
 
 For example, consider the following function that calculates the area and perimeter of a rectangle:
 
-```
+```javascript
 function calculateRectangle(width, height) {
   const area = width * height;
   const perimeter = 2 * (width + height);
@@ -797,7 +797,7 @@ function calculateRectangle(width, height) {
 
 Here, the function returns an array containing two values: the area and perimeter of the rectangle. These values can then be accessed using array destructuring, as shown below:
 
-```
+```javascript
 const [area, perimeter] = calculateRectangle(5, 10);
 console.log(area); // Output: 50
 console.log(perimeter); // Output: 30
@@ -805,7 +805,7 @@ console.log(perimeter); // Output: 30
 
 Another way to return multiple values is by using an object:
 
-```
+```javascript
 function calculateRectangle(width, height) {
   const area = width * height;
   const perimeter = 2 * (width + height);
@@ -815,7 +815,7 @@ function calculateRectangle(width, height) {
 
 In this case, the function returns an object with two properties: `area` and `perimeter`. These properties can then be accessed using dot notation, as shown below:
 
-```
+```javascript
 const result = calculateRectangle(5, 10);
 console.log(result.area); // Output: 50
 console.log(result.perimeter); // Output: 30
@@ -853,7 +853,7 @@ Here are some examples of how functions can be used as first-class objects:
 
 1. Assigned to a variable:
 
-```
+```javascript
 const greet = function(name) {
   console.log(`Hello, ${name}!`);
 }
@@ -865,7 +865,7 @@ In this example, a function expression is assigned to a variable named `greet`, 
 
 2. Passed as an argument to a function:
 
-```
+```javascript
 function apply(func, arg) {
   return func(arg);
 }
@@ -881,7 +881,7 @@ In this example, the `apply` function takes a function (`func`) and an argument 
 
 3. Returned from a function:
 
-```
+```javascript
 function createCounter() {
   let count = 0;
   return function() {
@@ -908,7 +908,7 @@ Callback functions can be defined inline or as separate functions, and they can 
 
 Here's an example of using a callback function to handle a click event on a button:
 
-```
+```javascript
 // Define a function that takes a callback function as an argument
 function handleButtonClick(callback) {
   const button = document.querySelector('button');
@@ -936,7 +936,7 @@ In JavaScript, you can compose functions using the `compose` function provided b
 
 Here is an example of composing two functions in JavaScript using closures:
 
-```
+```javascript
 function addOne(x) {
   return x + 1;
 }
@@ -964,7 +964,7 @@ In JavaScript, the `apply()` and `call()` methods are used to call a function wi
 
 The `apply()` method takes two parameters: the first parameter is the `this` value, and the second parameter is an array or an array-like object containing arguments to be passed to the function being called. Here is an example:
 
-```
+```javascript
 function sum(a, b) {
   return a + b;
 }
@@ -978,7 +978,7 @@ In this example, we use `apply()` to call the `sum()` function with the `this` v
 
 The `call()` method is similar to `apply()`, but instead of passing an array of arguments, we pass the arguments directly as individual parameters. Here is an example:
 
-```
+```javascript
 function multiply(a, b) {
   return a * b;
 }
