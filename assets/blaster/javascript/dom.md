@@ -34,3 +34,20 @@ Browsers and the DOM have a closely intertwined history, as the development of t
 
 - Today, modern web browsers provide robust support for the DOM standard, along with other web technologies such as CSS and HTML5. The DOM remains a critical component of client-side web development, as it allows developers to create dynamic and interactive web pages using JavaScript.
 
+## Structure
+
+The Document Object Model (DOM) is a programming interface for web documents that allows developers to access and manipulate the contents of a web page. The DOM represents the structure of an HTML or XML document as a tree-like structure, where each node in the tree corresponds to an element, attribute, or piece of content in the document.
+
+The root of the DOM tree is called the "document object", which represents the entire document. From there, the DOM is organized into a hierarchy of nodes, with each node representing a specific element or attribute of the document. Some of the most common types of nodes in the DOM include:
+
+1. Element Nodes: These represent the actual HTML elements on the page, such as <div>, <p>, <h1>, etc. Element nodes can have child nodes, such as other elements or text nodes.
+
+2. Text Nodes: These represent the actual text content within an element node, such as the text inside a <p> tag.
+
+3. Attribute Nodes: These represent the attributes of an HTML element, such as the "src" attribute of an <img> tag.
+
+4. Comment Nodes: These represent comments within the HTML document, enclosed by <!-- and -->.
+
+The relationship between nodes in the DOM is defined by the parent-child relationship. Each node has a parent node, except for the document object which is the root of the tree. Nodes can also have sibling nodes, which are other nodes that share the same parent.
+
+One of the primary purposes of the DOM is to allow developers to access and manipulate the contents of a web page using JavaScript. By using the methods and properties provided by the DOM API, developers can traverse the DOM tree, modify the contents of individual nodes, and add or remove nodes from the tree. This makes it possible to create dynamic, interactive web pages that respond to user input and events.
