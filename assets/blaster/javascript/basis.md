@@ -35,8 +35,243 @@ let myObject = {
 };
 ```
 
+### typeof operand
 
+`typeof` is a built-in operator in JavaScript that is used to determine the data type of a given value. It takes a single operand (the value whose type is to be determined) and returns a string that indicates the type of the value.
 
+The syntax for the `typeof` operator is as follows:
+
+```
+typeof operand
+```
+
+Here, `operand` is the value whose type is to be determined.
+
+The `typeof` operator can return any of the following string values:
+
+- `"undefined"`: If the operand is `undefined`.
+- `"boolean"`: If the operand is a Boolean value (`true` or `false`).
+- `"number"`: If the operand is a number, including integer, floating-point, and NaN values.
+- `"string"`: If the operand is a string.
+- `"bigint"`: If the operand is a BigInt value.
+- `"symbol"`: If the operand is a symbol.
+- `"function"`: If the operand is a function.
+- `"object"`: If the operand is an object or `null`.
+
+Note that the `typeof` operator does not distinguish between different types of objects. It treats all objects (including arrays and dates) as a single data type, which is `"object"`. To determine the specific type of an object, you can use other techniques, such as the `instanceof` operator or the `Object.prototype.toString` method.
+
+The `typeof` operator is useful for checking the type of a value before performing operations on it, or for debugging purposes. For example, you might use `typeof` to determine whether a variable is defined before accessing its properties, or to verify that a function argument has the expected data type.
+
+### numbers
+
+In JavaScript, the `number` data type represents both integer and floating-point numbers. Numbers in JavaScript are implemented using the IEEE-754 standard, which is the same standard used by most other programming languages.
+
+There are several ways to represent numbers in JavaScript:
+
+- Integer literals: These are whole numbers, expressed in decimal (base 10), binary (base 2), octal (base 8), or hexadecimal (base 16) notation. For example: `42`, `0b101010` (binary for 42), `0o52` (octal for 42), and `0x2a` (hexadecimal for 42).
+- Floating-point literals: These are decimal numbers with a fractional part, expressed using a decimal point. For example: `3.14`, `1.0e-6` (scientific notation for 0.000001), and `Infinity` (representing positive infinity).
+- Arithmetic expressions: These are combinations of numbers and arithmetic operators (`+`, `-`, `*`, `/`, `%`, and `**`) that evaluate to a numeric value. For example: `2 + 3`, `7 - 5`, `4 * 6`, `10 / 2`, `11 % 3` (remainder of 11 divided by 3), and `2 ** 8` (2 raised to the power of 8).
+
+JavaScript provides several built-in functions for working with numbers, such as `parseInt` (converts a string to an integer), `parseFloat` (converts a string to a floating-point number), `isNaN` (checks if a value is not a number), `isFinite` (checks if a value is a finite number), `Math.abs` (returns the absolute value of a number), `Math.round` (rounds a number to the nearest integer), and many others.
+
+One important thing to keep in mind when working with numbers in JavaScript is that they are subject to floating-point rounding errors. This means that some calculations may not yield exact results, especially when dealing with very large or very small numbers. To minimize rounding errors, you can use integer arithmetic (e.g., by multiplying and dividing by powers of 10) or a third-party library that provides arbitrary-precision arithmetic.
+
+Here are some examples of using the `number` type in JavaScript:
+
+```javascript
+// Integer literals
+let a = 42;
+let b = 0b101010; // binary for 42
+let c = 0o52; // octal for 42
+let d = 0x2a; // hexadecimal for 42
+
+console.log(a); // output: 42
+console.log(b); // output: 42
+console.log(c); // output: 42
+console.log(d); // output: 42
+
+// Floating-point literals
+let e = 3.14;
+let f = 1.0e-6; // scientific notation for 0.000001
+let g = Infinity;
+
+console.log(e); // output: 3.14
+console.log(f); // output: 1e-6
+console.log(g); // output: Infinity
+
+// Arithmetic expressions
+let x = 2 + 3;
+let y = 7 - 5;
+let z = 4 * 6;
+let w = 10 / 2;
+let r = 11 % 3;
+let s = 2 ** 8;
+
+console.log(x); // output: 5
+console.log(y); // output: 2
+console.log(z); // output: 24
+console.log(w); // output: 5
+console.log(r); // output: 2
+console.log(s); // output: 256
+```
+
+In the examples above, we create variables of type `number` using integer literals, floating-point literals, and arithmetic expressions. We also use some arithmetic operators (`+`, `-`, `*`, `/`, `%`, and `**`) to perform calculations with these numbers. Finally, we use the `console.log` function to output the results to the console.
+
+### string
+
+In JavaScript, the `string` data type is used to represent text. A string is a sequence of characters enclosed in single or double quotes. Here are some examples:
+
+```javascript
+let message1 = 'Hello, world!';
+let message2 = "This is a string.";
+let message3 = 'It\'s a beautiful day.';
+
+console.log(message1); // output: Hello, world!
+console.log(message2); // output: This is a string.
+console.log(message3); // output: It's a beautiful day.
+```
+
+In the first two examples, we create strings by enclosing the text in single and double quotes, respectively. In the third example, we need to use the backslash (`\`) to escape the single quote within the string.
+
+Strings are important data types in JavaScript, and they support many operations and methods. Here are some examples of common string operations:
+
+```javascript
+// Concatenation
+let firstName = 'John';
+let lastName = 'Doe';
+let fullName = firstName + ' ' + lastName;
+
+console.log(fullName); // output: John Doe
+
+// String length
+let message = 'JavaScript is awesome!';
+let length = message.length;
+
+console.log(length); // output: 22
+
+// Accessing characters by index
+let str = 'Hello, world!';
+let firstChar = str[0];
+let lastChar = str[str.length - 1];
+
+console.log(firstChar); // output: H
+console.log(lastChar); // output: !
+
+// Substrings
+let email = 'user@example.com';
+let username = email.substring(0, email.indexOf('@'));
+
+console.log(username); // output: user
+```
+
+In the first example, we concatenate two strings using the `+` operator. In the second example, we use the `length` property of the string to get its length. In the third example, we access individual characters of the string using their index. In the fourth example, we extract a substring from a string using the `substring` method and the `indexOf` method to find the index of the "@" character.
+
+### boolean
+
+In JavaScript, the `boolean` data type is used to represent logical values. A boolean value can be either `true` or `false`. For example:
+
+```javascript
+let isRaining = true;
+let hasSunshine = false;
+
+console.log(isRaining);    // output: true
+console.log(hasSunshine);  // output: false
+```
+
+Boolean values are often used in conditional statements to control the flow of a program. For example:
+
+```javascript
+let age = 25;
+
+if (age >= 18) {
+  console.log('You are an adult.');
+} else {
+  console.log('You are a minor.');
+}
+```
+
+In this example, we use a conditional statement (`if...else`) to check if the `age` variable is greater than or equal to 18. If the condition is true, the first block of code will execute and display the message "You are an adult." Otherwise, the second block of code will execute and display the message "You are a minor."
+
+Boolean values can also be created by using comparison operators, such as `==`, `!=`, `>`, `<`, `>=`, and `<=`. For example:
+
+```javascript
+let x = 5;
+let y = 10;
+
+console.log(x < y);   // output: true
+console.log(x == y);  // output: false
+```
+
+In this example, we use the `<` operator to compare the values of `x` and `y`. The first expression returns `true` because `x` is less than `y`. We also use the `==` operator to check if `x` is equal to `y`. The second expression returns `false` because `x` is not equal to `y`.
+
+### null and undefined
+
+In JavaScript, both `null` and `undefined` represent the absence of a value, but they are used in different contexts.
+
+`null` is an assignment value that represents the intentional absence of any object value. It can be assigned to a variable to explicitly indicate that it has no value or that a value is yet to be assigned. For example:
+
+```javascript
+let foo = null; // foo is explicitly assigned to null to indicate it has no value
+```
+
+`undefined`, on the other hand, indicates the absence of any assigned value. It is used when a variable has been declared but has not yet been assigned a value, or when a function is expected to return a value but doesn't. For example:
+
+```javascript
+let bar; // bar is declared but not assigned a value, so it is undefined
+function baz() {
+  // this function does not return a value, so it returns undefined
+}
+```
+
+It's important to understand the difference between `null` and `undefined` because they can have different effects in your code. For example, trying to access a property of an object that is `undefined` will throw a `TypeError`, whereas accessing a property of an object that is `null` will not throw an error but will simply return `null`. 
+
+In general, it's a good practice to initialize variables with a value to avoid confusion between `null` and `undefined`.
+
+In JavaScript, there are several values that are considered falsy, meaning they are treated as if they are `false` in conditional statements. These values include `null`, `undefined`, `NaN`, an empty string `""`, the number `0`, and the boolean value `false`. Here's a closer look at each of these values:
+
+- `null`: Represents a deliberate non-value or absence of any object value. For example, if a variable has been declared but has not been assigned a value, its value will be `null`.
+```javascript
+let a = null;
+console.log(a); // output: null
+```
+
+- `undefined`: Indicates that a variable has been declared but not initialized, or that a function is expected to return a value but doesn't. It is also the default return value of functions that don't have an explicit return statement.
+```javascript
+let b;
+console.log(b); // output: undefined
+```
+
+- `NaN`: Stands for "Not a Number" and is returned when a mathematical operation doesn't make sense or when the result is undefined.
+```javascript
+let c = "hello" / 2;
+console.log(c); // output: NaN
+```
+
+- Empty string `""`: Represents an empty or blank string. It is also falsy, meaning it is treated as if it is `false` in conditional statements.
+```javascript
+let d = "";
+if (d) {
+  console.log("This will not be executed");
+}
+```
+
+- Number `0`: Represents the number zero, which is also falsy.
+```javascript
+let e = 0;
+if (!e) {
+  console.log("This will be executed");
+}
+```
+
+- Boolean `false`: Represents the boolean value false, which is also falsy.
+```javascript
+let f = false;
+if (!f) {
+  console.log("This will be executed");
+}
+```
+
+It's important to understand these values because they can cause unexpected behavior in your code if not handled correctly in conditional statements or when performing operations.
 
 ## Literals
 
