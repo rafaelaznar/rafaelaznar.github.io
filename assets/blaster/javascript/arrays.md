@@ -20,7 +20,7 @@ let myOtherArray = [1, 2, 3, 4];
 
 Here's an example of how to declare and initialize an array in JavaScript:
 
-```
+```javascript
 // declaring an empty array
 let myArray = [];
 
