@@ -372,6 +372,8 @@ Here are some common ways to convert between data types in JavaScript:
 
 It's important to understand the different ways to convert between data types in JavaScript to avoid unexpected results and errors in your code.
 
+
+
 ### valueOf() and toString()
 
 `valueOf()` and `toString()` are methods available for JavaScript's `String` object.
@@ -402,6 +404,20 @@ console.log(strRepresentation);
 The `toString()` method returns a string representation of the `strObj` object, which is the string "hello world". The `console.log()` statement will output "hello world" to the console.
 
 In general, you should use `valueOf()` when you want to retrieve the primitive value of a `String` object, and `toString()` when you want to convert the object to a string representation.
+
+### Conversion table
+
+Here's a table of conversion types in JavaScript:
+
+| From Type | To Type | Conversion Method |
+| --- | --- | --- |
+| Number | String | `.toString()` or `String()` |
+| String | Number | `parseInt()` or `parseFloat()` |
+| Boolean | Number | `Number()` |
+| Number | Boolean | `Boolean()` |
+| String | Boolean | `Boolean()` |
+
+Note that there are other ways to perform type conversions in JavaScript, but these are the most common methods. Also, keep in mind that some conversions may not be possible, and will result in a `NaN` or `undefined` value.
 
 ## Operators
 
