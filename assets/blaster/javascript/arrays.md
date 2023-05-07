@@ -116,7 +116,7 @@ In JavaScript, arrays come with built-in methods that allow us to modify their c
 
 The `push` method adds one or more elements to the end of an array, and returns the new length of the array. Here's an example:
 
-```
+```javascript
 let myArray = [1, 2, 3];
 let newLength = myArray.push(4, 5);
 console.log(myArray); // Output: [1, 2, 3, 4, 5]
@@ -127,7 +127,7 @@ In this example, we define an array called `myArray` with three elements. We the
 
 The `pop` method removes the last element from an array, and returns that element. Here's an example:
 
-```
+```javascript
 let myArray = [1, 2, 3];
 let lastElement = myArray.pop();
 console.log(myArray); // Output: [1, 2]
@@ -182,21 +182,21 @@ The `splice()` method is a powerful built-in method in JavaScript arrays that al
 Here are a few examples of using the `splice()` method:
 
 1. Removing elements from an array:
-```
+```javascript
 const numbers = [1, 2, 3, 4, 5];
 numbers.splice(2, 2); // remove 2 elements starting at index 2
 console.log(numbers); // output: [1, 2, 5]
 ```
 
 2. Replacing elements in an array:
-```
+```javascript
 const numbers = [1, 2, 3, 4, 5];
 numbers.splice(2, 1, 'three'); // replace 1 element starting at index 2 with 'three'
 console.log(numbers); // output: [1, 2, 'three', 4, 5]
 ```
 
 3. Adding elements to an array:
-```
+```javascript
 const numbers = [1, 2, 3, 4, 5];
 numbers.splice(2, 0, 'two-point-five'); // add 'two-point-five' starting at index 2
 console.log(numbers); // output: [1, 2, 'two-point-five', 3, 4, 5]
@@ -208,7 +208,7 @@ Both `delete` and `splice` can be used to remove elements from an array in JavaS
 
 `delete` is a unary operator that removes a specific element from an array by setting it to `undefined`, but it does not change the length of the array or reindex the remaining elements. For example:
 
-```
+```javascript
 const arr = ['apple', 'banana', 'orange'];
 delete arr[1];
 console.log(arr); // Output: ["apple", undefined, "orange"]
@@ -219,7 +219,7 @@ As you can see, the element at index `1` has been removed, but it has been repla
 
 On the other hand, the `splice` method changes the contents of an array by removing or replacing existing elements and/or adding new elements, and it also changes the length of the array and reindexes the remaining elements. For example:
 
-```
+```javascript
 const arr = ['apple', 'banana', 'orange'];
 arr.splice(1, 1);
 console.log(arr); // Output: ["apple", "orange"]
@@ -235,7 +235,7 @@ The `concat()` method is a built-in function in JavaScript that is used to merge
 
 The syntax of the `concat()` method is as follows:
 
-```
+```javascript
 array.concat(arr1, arr2, ..., arrN)
 ```
 
@@ -243,7 +243,7 @@ Here, `array` is the original array that will be merged with the other arrays sp
 
 The `concat()` method can be used to merge any number of arrays, and the resulting array will be a flattened array containing all the elements of the original arrays. For example:
 
-```
+```javascript
 const array1 = [1, 2, 3];
 const array2 = [4, 5, 6];
 const array3 = [7, 8, 9];
@@ -276,7 +276,7 @@ The `slice()` method in JavaScript returns a shallow copy of a portion of an arr
 
 The syntax for the `slice()` method is:
 
-```
+```javascript
 array.slice(start, end)
 ```
 
@@ -289,7 +289,7 @@ The `slice()` method can be used to create a copy of an entire array or to extra
 
 Here are some examples:
 
-```
+```javascript
 const fruits = ['apple', 'banana', 'orange', 'grape', 'kiwi'];
 
 // create a new array with a copy of the entire original array
@@ -416,7 +416,7 @@ Note that the `reverse()` method does not create a new array. It modifies the or
 
 A for loop is a control flow statement that is commonly used to iterate through arrays in JavaScript. Here's the basic syntax for a for loop:
 
-```
+```javascript
 for (let i = 0; i < array.length; i++) {
   // code block to be executed
 }
@@ -426,7 +426,7 @@ This loop will iterate through each element in the array, starting from the firs
 
 Within the loop block, you can access the current array element using the `array[i]` syntax. Here's an example that logs each element of an array to the console:
 
-```
+```javascript
 const array = [1, 2, 3, 4, 5];
 
 for (let i = 0; i < array.length; i++) {
@@ -448,7 +448,7 @@ This will output:
 
 You can also use the `for...of` loop to iterate over an array in a simpler way, as follows:
 
-```
+```javascript
 const array = [1, 2, 3, 4, 5];
 
 for (const element of array) {
@@ -472,7 +472,7 @@ The `for...in` loop in JavaScript is used to iterate over the enumerable propert
 
 The syntax for the `for...in` loop is as follows:
 
-```
+```javascript
 for (variable in object) {
   // code to be executed
 }
@@ -482,13 +482,13 @@ Here, `variable` is a variable that will be assigned to each property of the obj
 
 For example, let's say we have an array of fruits:
 
-```
+```javascript
 var fruits = ["apple", "banana", "orange"];
 ```
 
 We can use a `for...in` loop to loop through the indices of the array as follows:
 
-```
+```javascript
 for (var index in fruits) {
   console.log(fruits[index]);
 }
@@ -504,13 +504,13 @@ orange
 
 However, as mentioned earlier, it is not recommended to use `for...in` to loop through arrays because it can also iterate over non-index properties. For example, if we add a new property to the array:
 
-```
+```javascript
 fruits.color = "red";
 ```
 
 And then use a `for...in` loop to loop through the array:
 
-```
+```javascript
 for (var index in fruits) {
   console.log(fruits[index]);
 }
@@ -547,7 +547,7 @@ The `forEach()` method is used to iterate over an array in JavaScript. It is a h
 
 The syntax for using the `forEach()` method is as follows:
 
-```
+```javascript
 array.forEach(callbackFunction);
 ```
 
@@ -559,7 +559,7 @@ The `callbackFunction` parameter is a function that is executed once for each el
 
 Here is an example of using the `forEach()` method to iterate over an array:
 
-```
+```javascript
 const numbers = [1, 2, 3, 4, 5];
 
 numbers.forEach(function(number, index) {
@@ -585,7 +585,7 @@ Array destructuring is a feature in JavaScript that allows you to extract values
 
 To use array destructuring, you can enclose the variables you want to extract from the array in square brackets `[]`. Here's an example:
 
-```
+```javascript
 const myArray = [1, 2, 3];
 const [a, b, c] = myArray;
 
@@ -598,7 +598,7 @@ In the above example, we have an array called `myArray` with three elements. We 
 
 Array destructuring also supports a feature called "rest" syntax, which allows you to extract the remaining elements of an array into a new array. Here's an example:
 
-```
+```javascript
 const myArray = [1, 2, 3, 4, 5];
 const [a, b, ...rest] = myArray;
 
@@ -614,7 +614,7 @@ Here are a few examples of array destructuring in JavaScript:
 
 Basic example:
 
-```
+```javascript
 const array = [1, 2, 3];
 const [a, b, c] = array;
 
@@ -625,7 +625,7 @@ console.log(c); // Output: 3
 
 Swapping variables:
 
-```
+```javascript
 let a = 10;
 let b = 20;
 
@@ -637,7 +637,7 @@ console.log(b); // Output: 10
 
 Ignoring elements:
 
-```
+```javascript
 const array = [1, 2, 3, 4, 5];
 const [a, , , d] = array;
 
@@ -647,7 +647,7 @@ console.log(d); // Output: 4
 
 Nested arrays:
 
-```
+```javascript
 const array = [1, 2, [3, 4]];
 const [a, b, [c, d]] = array;
 
@@ -659,7 +659,7 @@ console.log(d); // Output: 4
 
 Using default values:
 
-```
+```javascript
 const array = [1];
 const [a, b = 2] = array;
 
@@ -678,7 +678,7 @@ In JavaScript, the `map()` method is used to create a new array by transforming 
 
 The `map()` method returns a new array with the transformed values, without changing the original array. Here is an example of using `map()` to create a new array of square roots of the elements in an existing array:
 
-```
+```javascript
 const arr = [1, 4, 9, 16];
 const sqrtArr = arr.map(x => Math.sqrt(x));
 console.log(sqrtArr); // Output: [1, 2, 3, 4]
@@ -755,7 +755,7 @@ Filtering elements in an array means creating a new array that contains only the
 
 The syntax of the `filter()` method is as follows:
 
-```
+```javascript
 array.filter(callback(element[, index[, array]])[, thisArg])
 ```
 
@@ -784,7 +784,7 @@ In this example, the `callback` function is a arrow function that tests each ele
 
 Here is an example of filtering an array of objects based on multiple conditions:
 
-```
+```javascript
 const data = [
   { name: 'John', age: 30, city: 'New York' },
   { name: 'Jane', age: 25, city: 'Paris' },
@@ -837,7 +837,7 @@ Here's a complex example of how to use the `reduce()` method in JavaScript to su
 
 Suppose you have an array of objects representing sales data for different products, with each object containing a `product` name and a `sale` value:
 
-```
+```javascript
 const salesData = [
   { product: 'widget', sale: 100 },
   { product: 'gadget', sale: 200 },
@@ -851,7 +851,7 @@ const salesData = [
 
 If you want to sum up the total sales for each product, you can use `reduce()` to create an object where the keys are the product names and the values are the total sales for each product:
 
-```
+```javascript
 const salesByProduct = salesData.reduce((acc, item) => {
   const { product, sale } = item;
   if (acc[product]) {
@@ -866,7 +866,7 @@ console.log(salesByProduct);
 ```
 
 Output:
-```
+```javascript
 {
   widget: 300,
   gadget: 500,
@@ -913,7 +913,7 @@ In JavaScript, there are several methods to find elements in an array. Some of t
 1. indexOf(): This method returns the index of the first occurrence of a specified element in an array. If the element is not found, it returns -1.
 
 Example:
-```
+```javascript
 const fruits = ['apple', 'banana', 'orange', 'mango'];
 const index = fruits.indexOf('orange');
 console.log(index); // Output: 2
@@ -922,7 +922,7 @@ console.log(index); // Output: 2
 2. find(): This method returns the first element in an array that satisfies a specified condition. If no element satisfies the condition, it returns undefined.
 
 Example:
-```
+```javascript
 const numbers = [1, 2, 3, 4, 5];
 const result = numbers.find(num => num > 3);
 console.log(result); // Output: 4
@@ -931,7 +931,7 @@ console.log(result); // Output: 4
 3. filter(): This method returns an array containing all elements in an array that satisfy a specified condition.
 
 Example:
-```
+```javascript
 const numbers = [1, 2, 3, 4, 5];
 const result = numbers.filter(num => num > 3);
 console.log(result); // Output: [4, 5]
@@ -940,7 +940,7 @@ console.log(result); // Output: [4, 5]
 4. includes(): This method returns true if an array contains a specified element, otherwise it returns false.
 
 Example:
-```
+```javascript
 const fruits = ['apple', 'banana', 'orange', 'mango'];
 const result = fruits.includes('banana');
 console.log(result); // Output: true
@@ -949,7 +949,7 @@ console.log(result); // Output: true
 5. some(): This method returns true if at least one element in an array satisfies a specified condition, otherwise it returns false.
 
 Example:
-```
+```javascript
 const numbers = [1, 2, 3, 4, 5];
 const result = numbers.some(num => num > 3);
 console.log(result); // Output: true
@@ -958,7 +958,7 @@ console.log(result); // Output: true
 6. every(): This method returns true if all elements in an array satisfy a specified condition, otherwise it returns false.
 
 Example:
-```
+```javascript
 const numbers = [1, 2, 3, 4, 5];
 const result = numbers.every(num => num > 3);
 console.log(result); // Output: false
@@ -970,7 +970,7 @@ In JavaScript, a multidimensional array is an array that contains other arrays, 
 
 To create a multidimensional array in JavaScript, you can simply create an array of arrays, where each inner array represents a row or a column of the matrix. Here's an example:
 
-```
+```javascript
 const matrix = [
   [1, 2, 3],
   [4, 5, 6],
@@ -980,7 +980,7 @@ const matrix = [
 
 In this example, `matrix` is a 3x3 matrix, where each row is an inner array. You can access individual elements of the matrix using multiple indices:
 
-```
+```javascript
 console.log(matrix[0][0]); // outputs 1
 console.log(matrix[1][2]); // outputs 6
 console.log(matrix[2][1]); // outputs 8
@@ -988,7 +988,7 @@ console.log(matrix[2][1]); // outputs 8
 
 You can also use loops to iterate over the elements of a multidimensional array. For example, to print all the elements of the matrix, you can use a nested loop:
 
-```
+```javascript
 for (let i = 0; i < matrix.length; i++) {
   for (let j = 0; j < matrix[i].length; j++) {
     console.log(matrix[i][j]);
