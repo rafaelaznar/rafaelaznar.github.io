@@ -58,6 +58,22 @@ The `typeof` operator can return any of the following string values:
 - `"function"`: If the operand is a function.
 - `"object"`: If the operand is an object or `null`.
 
+Here are some examples of the `typeof` operator in JavaScript:
+
+```javascript
+typeof 42; // "number"
+typeof "hello"; // "string"
+typeof true; // "boolean"
+typeof {}; // "object"
+typeof null; // "object"
+typeof undefined; // "undefined"
+typeof []; // "object"
+typeof function() {}; // "function"
+typeof NaN; // "number"
+```
+
+In the examples above, `typeof` is used to determine the data type of different values in JavaScript. Note that `typeof null` returns "object", which is a known quirk of the language. Also, `typeof []` returns "object", even though arrays are a specialized type of object in JavaScript.
+
 Note that the `typeof` operator does not distinguish between different types of objects. It treats all objects (including arrays and dates) as a single data type, which is `"object"`. To determine the specific type of an object, you can use other techniques, such as the `instanceof` operator or the `Object.prototype.toString` method.
 
 The `typeof` operator is useful for checking the type of a value before performing operations on it, or for debugging purposes. For example, you might use `typeof` to determine whether a variable is defined before accessing its properties, or to verify that a function argument has the expected data type.
@@ -356,6 +372,37 @@ Here are some common ways to convert between data types in JavaScript:
 
 It's important to understand the different ways to convert between data types in JavaScript to avoid unexpected results and errors in your code.
 
+### valueOf() and toString()
+
+`valueOf()` and `toString()` are methods available for JavaScript's `String` object.
+
+The `valueOf()` method returns the primitive value of a `String` object. It's similar to the `toString()` method, but instead of returning a string, it returns the primitive value of the object.
+
+For example, consider the following code:
+
+```javascript
+const str = "hello world";
+const primitive = str.valueOf();
+console.log(primitive);
+```
+
+The `valueOf()` method returns the primitive value of the `str` object, which is the string "hello world". The `console.log()` statement will output "hello world" to the console.
+
+On the other hand, the `toString()` method returns a string representing the object. If the object is already a string, it simply returns the string itself.
+
+For example, consider the following code:
+
+```javascript
+const str = "hello world";
+const strObj = new String(str);
+const strRepresentation = strObj.toString();
+console.log(strRepresentation);
+```
+
+The `toString()` method returns a string representation of the `strObj` object, which is the string "hello world". The `console.log()` statement will output "hello world" to the console.
+
+In general, you should use `valueOf()` when you want to retrieve the primitive value of a `String` object, and `toString()` when you want to convert the object to a string representation.
+
 ## Operators
 
 In JavaScript, operators are special symbols or keywords that are used to perform operations on values. They can be used to perform arithmetic, comparison, assignment, logical, and other types of operations.
@@ -519,36 +566,7 @@ console.log(message);
 In this example, the value of the `message` variable will be `"You are not old enough to vote yet."` because the condition (`age >= 18`) is false.
 
 Conditional statements are an essential part of any programming language, and understanding them is crucial for creating complex programs in JavaScript.
-### valueof and tostring
 
-`valueOf()` and `toString()` are methods available for JavaScript's `String` object.
-
-The `valueOf()` method returns the primitive value of a `String` object. It's similar to the `toString()` method, but instead of returning a string, it returns the primitive value of the object.
-
-For example, consider the following code:
-
-```javascript
-const str = "hello world";
-const primitive = str.valueOf();
-console.log(primitive);
-```
-
-The `valueOf()` method returns the primitive value of the `str` object, which is the string "hello world". The `console.log()` statement will output "hello world" to the console.
-
-On the other hand, the `toString()` method returns a string representing the object. If the object is already a string, it simply returns the string itself.
-
-For example, consider the following code:
-
-```javascript
-const str = "hello world";
-const strObj = new String(str);
-const strRepresentation = strObj.toString();
-console.log(strRepresentation);
-```
-
-The `toString()` method returns a string representation of the `strObj` object, which is the string "hello world". The `console.log()` statement will output "hello world" to the console.
-
-In general, you should use `valueOf()` when you want to retrieve the primitive value of a `String` object, and `toString()` when you want to convert the object to a string representation.
 
 ## Loops:
 In JavaScript, loops are used to repeat a block of code multiple times. There are several types of loops in JavaScript, including the `for` loop, the `while` loop, and the `do...while` loop.
