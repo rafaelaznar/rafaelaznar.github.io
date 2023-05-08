@@ -909,10 +909,201 @@ printArea(circle); // The area is 153.93804002589985
 
 In this example, we define an interface `Shape` with a method `calculateArea`. We then implement this interface in two classes, `Rectangle` and `Circle`. Both classes have a `calculateArea` method that calculates the area of the shape, but they do it differently depending on their shape. Finally, we use the `printArea` function to print the area of the different shapes, polymorphically using the `calculateArea` method from the interface.
 
-## Design Patterns:
-- Understanding design patterns in OOP
-- Common design patterns: Singleton, Factory, Observer, Decorator
-- Benefits and drawbacks of design patterns
+## Design Patterns
+
+Patterns are reusable solutions to commonly occurring problems in software development. They are a way to provide structure and organization to code, making it more modular, flexible, and easy to maintain. In JavaScript, there are several design patterns that can be used to solve different types of problems, such as the singleton pattern, factory pattern, observer pattern, and decorator pattern, to name a few.
+
+Learning and using design patterns in JavaScript can be very beneficial as they help developers to write better, cleaner, and more efficient code. By using patterns, developers can avoid common pitfalls, improve the performance and scalability of their code, and create more reusable and maintainable codebases.
+
+Additionally, design patterns can provide a common language and structure for developers to communicate with each other and share solutions to common problems. This makes it easier to collaborate on projects and reduces the likelihood of errors or misunderstandings.
+
+Overall, while it's not necessary to use design patterns in every situation, understanding and utilizing them can greatly improve the quality and maintainability of your code.
+
+### Singleton
+
+The Singleton pattern is a design pattern that restricts the instantiation of a class to a single instance and provides a global point of access to that instance. In other words, it ensures that a class has only one instance and provides a way to access it globally.
+
+In ES6, we can implement the Singleton pattern using a combination of the `class` syntax and the `static` keyword. Here's an example:
+
+```javascript
+class Singleton {
+  static instance = null;
+
+  constructor() {
+    if (Singleton.instance) {
+      return Singleton.instance;
+    }
+    Singleton.instance = this;
+    this.name = 'Singleton';
+  }
+
+  sayName() {
+    console.log(`My name is ${this.name}.`);
+  }
+}
+
+const s1 = new Singleton(); // creates a new instance
+const s2 = new Singleton(); // returns the existing instance
+
+console.log(s1 === s2); // true
+
+s1.sayName(); // "My name is Singleton."
+s2.sayName(); // "My name is Singleton."
+```
+
+In this example, the `instance` property is defined as a `static` property of the `Singleton` class, which means it belongs to the class itself, not its instances. When a new instance of `Singleton` is created, the constructor checks if `instance` already exists, and if so, it returns the existing instance instead of creating a new one. If `instance` does not exist, it creates a new instance and sets `instance` to the new instance.
+
+The `sayName` method is a regular instance method that can be called on the Singleton instance. In this example, calling `sayName` on `s1` and `s2` will both output "My name is Singleton."
+
+The Singleton pattern is useful when we want to limit the number of instances of a class and ensure that all code accesses the same instance. It is commonly used for things like database connections, logging services, and configuration objects. However, it can also make testing more difficult and introduce global state, which can lead to potential issues if not managed carefully.
+
+### Factory
+
+The factory pattern is a creational design pattern that provides a way to create objects without specifying the exact class or constructor function that should be used to create them. Instead of creating objects directly, a factory function is used to create and return new instances of objects based on some input or configuration.
+
+In ES6, we can use a class as a factory to create objects. The class can have a factory method that takes some parameters and returns a new instance of an object with some initial configuration. Here's an example:
+
+```javascript
+class ShapeFactory {
+  static createShape(type, options) {
+    switch(type) {
+      case 'circle':
+        return new Circle(options);
+      case 'rectangle':
+        return new Rectangle(options);
+      case 'triangle':
+        return new Triangle(options);
+      default:
+        throw new Error(`Invalid shape type: ${type}`);
+    }
+  }
+}
+
+class Circle {
+  constructor(options) {
+    // initialize circle object
+  }
+}
+
+class Rectangle {
+  constructor(options) {
+    // initialize rectangle object
+  }
+}
+
+class Triangle {
+  constructor(options) {
+    // initialize triangle object
+  }
+}
+
+// usage
+const circle = ShapeFactory.createShape('circle', { radius: 10 });
+const rectangle = ShapeFactory.createShape('rectangle', { width: 20, height: 30 });
+const triangle = ShapeFactory.createShape('triangle', { base: 20, height: 30 });
+```
+
+In this example, we define a ShapeFactory class that has a static method `createShape` that takes a `type` parameter and an `options` parameter. The `createShape` method then creates and returns an object based on the `type` parameter.
+
+The `Circle`, `Rectangle`, and `Triangle` classes are the objects that can be created by the factory. Each of these classes has its own constructor that takes an `options` parameter, which is used to initialize the object.
+
+Using a factory pattern has several benefits. It provides a way to create objects without having to specify the exact class or constructor function. It also centralizes the object creation logic, making it easier to modify or extend in the future. However, the factory pattern can also lead to complex code and reduce the flexibility of the object creation process.
+
+### Observer
+
+The Observer pattern is a behavioral design pattern that allows an object (known as the subject) to maintain a list of its dependents (known as observers) and notify them automatically of any state changes, usually by calling one of their methods. 
+
+In ES6, the Observer pattern can be implemented using the built-in `Proxy` object. The `Proxy` object allows you to define custom behavior for fundamental operations (e.g. property lookup, assignment, invocation) on an object. 
+
+To implement the Observer pattern using `Proxy`, you would create an object that represents the subject, and define a list of observers as an array property on that object. You would then create a `Proxy` object for the subject, and define a `set` trap on the `Proxy` object. Whenever a property of the subject is set, the `set` trap would be invoked and would notify each observer in the list of the change.
+
+Here is an example implementation of the Observer pattern using `Proxy` in ES6:
+
+```javascript
+const subject = {
+  observers: [],
+
+  subscribe(observer) {
+    this.observers.push(observer);
+  },
+
+  unsubscribe(observer) {
+    this.observers = this.observers.filter(obs => obs !== observer);
+  },
+
+  notify(data) {
+    this.observers.forEach(observer => observer.update(data));
+  }
+};
+
+const observer1 = {
+  update(data) {
+    console.log(`Observer 1 received data: ${data}`);
+  }
+};
+
+const observer2 = {
+  update(data) {
+    console.log(`Observer 2 received data: ${data}`);
+  }
+};
+
+subject.subscribe(observer1);
+subject.subscribe(observer2);
+
+const subjectProxy = new Proxy(subject, {
+  set(target, key, value) {
+    target[key] = value;
+    target.notify(value);
+    return true;
+  }
+});
+
+subjectProxy.data = "Some data"; // Output: "Observer 1 received data: Some data", "Observer 2 received data: Some data"
+```
+
+In this example, `subject` is the object that represents the subject. It has an `observers` array property, and methods to subscribe, unsubscribe, and notify observers. 
+
+`observer1` and `observer2` are objects that represent observers. They each have an `update` method that is called when the subject notifies them of a change. 
+
+`subjectProxy` is a `Proxy` object that wraps the `subject` object. It has a `set` trap that is invoked whenever a property of the subject is set. When the `set` trap is invoked, it updates the property on the subject, and then calls the `notify` method to notify all observers of the change. 
+
+When `subjectProxy.data` is set to "Some data", both `observer1` and `observer2` are notified of the change and their `update` methods are called with the data.
+
+### Decorator
+
+The decorator pattern is a design pattern that allows behavior to be added to an individual object dynamically without affecting the behavior of other objects from the same class. It is a structural pattern that is used to add functionality to an object at runtime.
+
+In ES6, the decorator pattern can be implemented using decorators. Decorators are functions that can modify the behavior of a class or a class property. They can be used to add functionality such as logging, caching, validation, or access control to an object.
+
+Here's an example of implementing the decorator pattern in ES6:
+
+```javascript
+// Decorator function that logs method calls
+function log(target, name, descriptor) {
+  const original = descriptor.value;
+  descriptor.value = function (...args) {
+    console.log(`Calling ${name} with args: ${args}`);
+    return original.apply(this, args);
+  };
+  return descriptor;
+}
+
+// Class that uses the log decorator
+class Calculator {
+  @log
+  add(a, b) {
+    return a + b;
+  }
+}
+
+const calculator = new Calculator();
+console.log(calculator.add(2, 3)); // Calling add with args: 2,3
+                                   // 5
+```
+
+In this example, the `log` function is a decorator that logs the method calls of a class. The `@log` syntax is used to apply the `log` decorator to the `add` method of the `Calculator` class. When the `add` method is called, the `log` decorator is executed first, and it logs the method call before calling the original `add` method.
+
 
 ## Best Practices:
 - Writing reusable and maintainable code
