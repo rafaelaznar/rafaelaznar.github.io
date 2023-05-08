@@ -230,7 +230,7 @@ myObj["myMethod"] = function() { console.log("Method called"); }; // Using brack
 
 To set a method in an object, you can assign a function to a property or use the function keyword to create a method. For example:
 
-```
+```javascript
 let myObj = {
   myMethod: function() {
     console.log("Method called");
