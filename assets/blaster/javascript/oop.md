@@ -36,7 +36,7 @@ In JavaScript, objects are a fundamental data type, and they can be created usin
 
 In JavaScript, you can create objects using object literals, which is a way of defining an object using a comma-separated list of key-value pairs enclosed in curly braces. Here's an example:
 
-```
+```javascript
 const person = {
   name: 'John',
   age: 30,
@@ -56,7 +56,7 @@ In this example, we've defined an object called `person` with four properties: `
 
 You can access the properties and methods of an object using dot notation, like this:
 
-```
+```javascript
 console.log(person.name); // 'John'
 person.sayHello(); // logs 'Hello, my name is John and I'm 30 years old.'
 ```
@@ -129,7 +129,7 @@ This can cause unexpected behavior and errors, as the properties and methods tha
 
 For example, consider the following constructor function:
 
-```
+```javascript
 function Person(name, age) {
   this.name = name;
   this.age = age;
@@ -141,14 +141,14 @@ function Person(name, age) {
 
 If you create a new object using the `new` keyword, the function will be called as a constructor:
 
-```
+```javascript
 let person1 = new Person("Alice", 30);
 person1.sayHello(); // "Hello, my name is Alice and I am 30 years old."
 ```
 
 However, if you forget to use `new`, the function will be called as a regular function and the properties and methods will not be added to a new object:
 
-```
+```javascript
 let person2 = Person("Bob", 35);
 console.log(person2); // undefined
 console.log(name); // "Bob"
@@ -165,7 +165,7 @@ If the `new` keyword is not used when calling the constructor function, `this` w
 
 Here is an example to illustrate the relationship between `new` and `this` in JavaScript:
 
-```
+```javascript
 function Person(name, age) {
   this.name = name;
   this.age = age;
@@ -222,7 +222,7 @@ In JavaScript, properties and methods can be added to objects using dot notation
 
 To set a property in an object, use the dot notation or bracket notation and assign a value to it. For example:
 
-```
+```javascript
 let myObj = {};
 myObj.myProperty = "Hello World"; // Using dot notation to set the property
 myObj["myMethod"] = function() { console.log("Method called"); }; // Using bracket notation to set the method
@@ -242,7 +242,7 @@ myObj.myMethod(); // Output: "Method called"
 
 You can also set properties and methods when creating an object using object literals or constructor functions. For example:
 
-```
+```javascript
 // Object literal
 let myObj = {
   myProperty: "Hello World",
@@ -265,7 +265,7 @@ newObj.myMethod(); // Output: "Method called"
 
 In ES6, you can use class syntax to define properties and methods of an object. For example:
 
-```
+```javascript
 class MyClass {
   constructor() {
     this.myProperty = "Hello World";
@@ -630,15 +630,134 @@ I'm studying Computer Science.
 
 ## Encapsulation
 
-- Defining private and public properties and methods
-- Using closures to achieve encapsulation
-- Benefits and drawbacks of encapsulation
+Encapsulation is a fundamental concept in object-oriented programming that refers to the practice of bundling data and methods that operate on that data within a single unit. This can help prevent external code from accessing or modifying the internal state of an object, providing better control over how an object is used and maintained.
+
+### Classic encapsulation
+
+In classic JavaScript, encapsulation can be achieved through the use of constructor functions and the `this` keyword. Constructor functions can be used to define a blueprint for creating new objects that have the same properties and methods. Properties can be added to the object by assigning them to `this` within the constructor function, and methods can be defined by adding them to the object's prototype.
+
+For example, consider the following constructor function:
+
+```javascript
+function Car(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+
+  this.getMake = function() {
+    return this.make;
+  }
+
+  this.getModel = function() {
+    return this.model;
+  }
+
+  this.getYear = function() {
+    return this.year;
+  }
+}
+```
+
+This constructor function defines a `Car` object with three properties (`make`, `model`, and `year`) and three methods (`getMake`, `getModel`, and `getYear`). Each of these methods uses `this` to access the object's properties, and is thus encapsulated within the object.
+
+To create a new `Car` object, you can use the `new` keyword:
+
+```javascript
+var myCar = new Car("Toyota", "Camry", 2021);
+```
+
+This creates a new `Car` object with the specified `make`, `model`, and `year` properties.
+
+### ES6 encapsulation
+
+In ES6, encapsulation can be achieved through the use of classes and access modifiers. ES6 provides three access modifiers for class members: public, private, and protected. The public modifier indicates that a member can be accessed from outside the class, while the private modifier indicates that a member can only be accessed from within the class. The protected modifier is similar to the private modifier, but it also allows access from within derived classes.
+
+To create a private member in an ES6 class, you can use the `#` symbol before the member name, like so:
+
+```javascript
+class MyClass {
+  #privateMember;
+
+  constructor() {
+    this.#privateMember = 'private';
+  }
+
+  publicMethod() {
+    console.log(this.#privateMember);
+  }
+}
+```
+
+In this example, `#privateMember` is a private member of the `MyClass` class, which can only be accessed from within the class itself. The `publicMethod()` method, which is a public member, can access the private member.
+
+ES6 also provides getter and setter methods, which can be used to control access to class properties. Getters and setters can be used to expose private members in a controlled way, by allowing read and write access to those members through public methods.
+
+```javascript
+class MyClass {
+  #privateMember;
+
+  constructor() {
+    this.#privateMember = 'private';
+  }
+
+  get privateMember() {
+    return this.#privateMember;
+  }
+
+  set privateMember(value) {
+    this.#privateMember = value;
+  }
+
+  publicMethod() {
+    console.log(this.#privateMember);
+  }
+}
+```
+
+In this example, the `privateMember` property is a private member of the `MyClass` class. The `get` and `set` methods allow read and write access to the property, respectively, while the `publicMethod()` method can access the private member directly.
+
+Overall, encapsulation is an important concept in object-oriented programming, and ES6 provides powerful tools for achieving it in JavaScript.
+
+
+### Using closures to achieve encapsulation
+
+In JavaScript, closures are often used to achieve encapsulation. Closures are functions that have access to the outer (enclosing) function's variables and parameters, even after the outer function has returned. This allows you to create private variables and functions in JavaScript, which can only be accessed by the closure function.
+
+Here's an example of how you can use closures to achieve encapsulation in JavaScript:
+
+```javascript
+function createCounter() {
+  let count = 0;
+
+  return {
+    increment() {
+      count++;
+    },
+    decrement() {
+      count--;
+    },
+    getCount() {
+      return count;
+    }
+  };
+}
+
+const counter = createCounter();
+console.log(counter.getCount()); // 0
+counter.increment();
+console.log(counter.getCount()); // 1
+counter.decrement();
+console.log(counter.getCount()); // 0
+```
+
+In this example, we're creating a closure function `createCounter` that has a private variable `count`. The closure function returns an object with three methods: `increment`, `decrement`, and `getCount`. These methods have access to the private `count` variable because of the closure created by the `createCounter` function.
+
+By returning an object with only the necessary methods, we can prevent external code from accessing or modifying the `count` variable directly. This creates a level of encapsulation in our code, making it more modular and easier to maintain.
 
 
 
-## Classes
-- Understanding Classes in JavaScript
-- Creating and Using Classes in JavaScript
+
+
 
 ## Polymorphism:
 - Understanding polymorphism in OOP
