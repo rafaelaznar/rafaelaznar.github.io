@@ -1,5 +1,202 @@
 # Best Practices
 
+## Avoid anti-patterns
+
+In JavaScript, an anti-pattern is a common approach to solving a problem that is considered ineffective, counterproductive, or even harmful. Anti-patterns often arise from a lack of understanding of the language and its best practices, or from the misuse of popular libraries or frameworks.
+
+Some common anti-patterns in JavaScript include:
+
+1. Global variables: using global variables can make code difficult to understand and maintain, and can lead to unintended consequences when variables are inadvertently overwritten or reused.
+
+2. Callback hell: nesting callbacks can lead to unreadable and unmaintainable code, and can be difficult to debug or test.
+
+3. Over-reliance on frameworks: using a framework or library can make development faster and easier, but relying too heavily on them can lead to bloated code, unnecessary dependencies, and difficulty upgrading to newer versions.
+
+4. Inefficient DOM manipulation: manipulating the DOM (Document Object Model) can be slow and resource-intensive, so it's important to use techniques like event delegation and batch updates to minimize the impact.
+
+5. Not handling errors: failing to handle errors properly can lead to unexpected behavior, security vulnerabilities, and crashes.
+
+6. Copy-pasting code: duplicating code can lead to inconsistencies, difficult maintenance, and increased risk of bugs.
+
+By avoiding these anti-patterns and following best practices, developers can create more efficient, maintainable, and secure JavaScript code.
+
+## Global variables
+
+In JavaScript, it's important to avoid using global variables because it can lead to naming collisions, unexpected behavior, and makes it difficult to manage and maintain the code. Here are some ways to avoid using global variables:
+
+1. Use functions to create a private scope: By wrapping your code in a function, you can create a private scope that can contain its own variables and functions. This way, you can avoid polluting the global namespace and also prevent naming collisions.
+
+Here's an example of how you can use functions to create a private scope and avoid the use of global variables:
+
+```javascript
+function Counter() {
+  let count = 0;
+
+  this.increment = function() {
+    count++;
+    console.log(count);
+  };
+
+  this.decrement = function() {
+    count--;
+    console.log(count);
+  };
+}
+
+const counter = new Counter();
+counter.increment(); // logs 1
+counter.increment(); // logs 2
+counter.decrement(); // logs 1
+```
+
+In this example, the `Counter` function has a local variable `count` that is not accessible from outside the function. The `increment` and `decrement` methods are defined as part of the `Counter` object and have access to the `count` variable. When you create a new instance of `Counter` using the `new` keyword, you get a new object that has its own private `count` variable and methods to manipulate it.
+
+This approach is known as the Module pattern, which allows you to create private variables and methods in JavaScript by using closures to create a private scope.
+
+2. Use modules: In modern JavaScript, modules are a powerful tool for organizing code and encapsulating functionality. Modules allow you to create private namespaces, import and export functions and variables, and limit the scope of your code.
+
+Modules are a way to organize code into self-contained, reusable units of functionality. A module is a file containing JavaScript code that defines one or more entities such as variables, functions, classes, or objects, and exports them for use by other modules.
+
+In ES6, modules are defined using the `export` and `import` keywords. The `export` keyword is used to export a module's public API, which can include variables, functions, classes, or objects. The `import` keyword is used to import the exported entities from other modules.
+
+Here's an example of exporting a variable from a module:
+
+```javascript
+// module.js
+export const PI = 3.14;
+```
+
+Here's an example of importing the exported variable into another module:
+
+```javascript
+// main.js
+import { PI } from './module.js';
+console.log(PI); // output: 3.14
+```
+
+In addition to exporting and importing named entities, modules can also have a default export. The default export is a single value or object that is exported as the default value for the module. Here's an example of exporting a default value from a module:
+
+```javascript
+// module.js
+export default function greet(name) {
+  console.log(`Hello, ${name}!`);
+}
+```
+
+Here's an example of importing the default exported function into another module:
+
+```javascript
+// main.js
+import greet from './module.js';
+greet('World'); // output: Hello, World!
+```
+
+Modules provide several benefits, including encapsulation, better code organization, and better dependency management. They also help to avoid naming collisions and reduce the use of global variables, making it easier to maintain and test code.
+
+3. Use let and const instead of var: The let and const keywords were introduced in ES6 to provide block-scoped variables. Unlike var, let and const variables are not hoisted to the top of the scope, and they can only be accessed within the block they are declared in.
+
+In JavaScript, the `var` keyword is used to declare a variable. In contrast, the `let` keyword was introduced in ES6 and is also used to declare variables. However, the two keywords behave differently in certain situations.
+
+One common mistake that can be made is using the `var` keyword instead of `let` when declaring variables in a block scope. For example:
+
+```javascript
+for (var i = 0; i < 5; i++) {
+  setTimeout(function() {
+    console.log(i);
+  }, 1000);
+}
+```
+
+In this example, we are using a loop to create a set of timeouts, each of which will log the value of `i` to the console after one second. However, because `var` is used to declare `i`, it has function scope rather than block scope. This means that `i` is shared by all the functions created by the loop, and at the end of the loop, its value is 5.
+
+As a result, when the timeouts fire after one second, they all log the value 5 to the console, rather than the expected values of 0, 1, 2, 3, and 4.
+
+To fix this issue, we can use the `let` keyword instead of `var`, which will give `i` block scope:
+
+```javascript
+for (let i = 0; i < 5; i++) {
+  setTimeout(function() {
+    console.log(i);
+  }, 1000);
+}
+```
+
+In this updated example, each iteration of the loop has its own version of `i`, so each timeout logs the expected value to the console.
+
+In general, it's best practice to use `let` or `const` instead of `var` when declaring variables in modern JavaScript, as they provide block scope and can help prevent unintended side effects.
+
+4. Use objects to group related variables and functions: Instead of defining multiple global variables, you can group them into an object to avoid naming collisions and provide a more organized structure.
+
+Here's an example of using an object to group related variables and functions:
+
+```javascript
+const car = {
+  brand: 'Toyota',
+  model: 'Corolla',
+  year: 2022,
+  isStarted: false,
+  
+  start() {
+    if (this.isStarted) {
+      console.log('The car is already started');
+    } else {
+      console.log('Starting the car...');
+      this.isStarted = true;
+    }
+  },
+  
+  stop() {
+    if (this.isStarted) {
+      console.log('Stopping the car...');
+      this.isStarted = false;
+    } else {
+      console.log('The car is already stopped');
+    }
+  }
+};
+
+console.log(car.brand); // Output: Toyota
+car.start(); // Output: Starting the car...
+car.start(); // Output: The car is already started
+car.stop(); // Output: Stopping the car...
+car.stop(); // Output: The car is already stopped
+```
+
+In this example, we create an object called `car` that contains several related variables and functions. The `brand`, `model`, `year`, and `isStarted` variables are all related to the concept of a car, and the `start()` and `stop()` functions are related to the behavior of starting and stopping a car. 
+
+By grouping these variables and functions together in an object, we can more easily work with them as a cohesive unit. We can access the `brand` variable using `car.brand`, and we can call the `start()` function using `car.start()`. 
+
+Using objects to group related variables and functions like this can make our code more organized, easier to read and maintain, and less prone to errors.
+
+5. Use dependency injection: When you have functions that depend on global variables, you can pass those variables as parameters to the function. This is called dependency injection and it allows you to decouple your code from global variables.
+
+Here's an example of using dependency injection in frontend JavaScript:
+
+Let's say you have a JavaScript function that fetches data from an API and displays it on the webpage. You want to make this function reusable, so you decide to use dependency injection to pass in the API endpoint as a parameter.
+
+```javascript
+function fetchData(apiEndpoint) {
+  fetch(apiEndpoint)
+    .then(response => response.json())
+    .then(data => {
+      // Display data on the webpage
+    })
+    .catch(error => {
+      // Handle error
+    });
+}
+
+// Call the function with the API endpoint as an argument
+fetchData('https://example.com/api/data');
+```
+
+In this example, the `fetchData()` function takes an `apiEndpoint` parameter, which is used as the URL for the `fetch()` call. By using dependency injection, we can easily reuse this function with different API endpoints.
+
+To use this function in your frontend code, you can call it with the desired API endpoint as an argument. For example, if you want to fetch data from a different API endpoint, you can simply call `fetchData()` with the new endpoint URL.
+
+This approach can be particularly useful when you're working with frontend frameworks like React or Angular, where you may need to pass dependencies between components or services. By using dependency injection, you can keep your code modular and easy to test.
+
+
 ## Error Control
 
 In JavaScript, errors can occur at various points during the execution of a program, such as syntax errors, runtime errors, and logical errors. It is important to handle errors properly to ensure the program runs smoothly and the user is notified of any issues.
@@ -10,7 +207,7 @@ There are several ways to control errors in JavaScript:
 
 Example:
 
-```
+```javascript
 try {
   // some code that might throw an error
 } catch (error) {
@@ -22,7 +219,7 @@ try {
 
 Example:
 
-```
+```javascript
 try {
   // some code that might throw an error
 } catch (error) {
@@ -38,7 +235,7 @@ try {
 
 Example:
 
-```
+```javascript
 try {
   // some code that might throw an error
 } catch (error) {
@@ -52,7 +249,7 @@ try {
 
 Example:
 
-```
+```javascript
 fetch('some-url')
   .then(response => {
     // handle the response
@@ -70,13 +267,13 @@ In JavaScript, `throw` is used to throw an exception. When an error occurs, you 
 
 To throw an exception in JavaScript, you use the `throw` statement, followed by an expression or value that specifies the exception. For example, to throw an exception with a message, you can use:
 
-```
+```javascript
 throw new Error("Something went wrong");
 ```
 
 This will create a new `Error` object with the message "Something went wrong" and throw it. You can catch this exception using a `try-catch` block:
 
-```
+```javascript
 try {
   // Code that may throw an exception
 } catch (e) {
@@ -128,6 +325,7 @@ It's important to choose the appropriate Error object for each specific use case
 
 
 ### Error handling best practices
+
 Error handling is an essential part of building robust and reliable applications. Here are some best practices for error control in JavaScript:
 
 1. Handle errors gracefully: When an error occurs, don't let it crash your application. Instead, handle it gracefully by displaying a meaningful error message to the user or logging the error to the console.
