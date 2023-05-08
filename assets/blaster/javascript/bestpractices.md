@@ -354,6 +354,43 @@ Here are some tips for testing JavaScript frontend code:
 
 2. Write unit tests: Unit tests are designed to test small pieces of code in isolation. They can help you identify and fix issues early in the development cycle.
 
+Here's an example of a unit test for a function that calculates the sum of two numbers in frontend JS using the Jest testing framework:
+
+```javascript
+// sum.js
+function sum(a, b) {
+  return a + b;
+}
+
+module.exports = sum;
+```
+
+```javascript
+// sum.test.js
+const sum = require('./sum');
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3);
+});
+
+test('adds -1 + 1 to equal 0', () => {
+  expect(sum(-1, 1)).toBe(0);
+});
+
+test('adds 0.1 + 0.2 to equal 0.3', () => {
+  expect(sum(0.1, 0.2)).toBeCloseTo(0.3);
+});
+```
+
+In this example, the `sum` function is defined in `sum.js`, and the unit test file is `sum.test.js`. 
+
+The `test` function is used to define a test case. The first argument is a description of the test, and the second argument is a function that contains the actual test. 
+
+In the test function, the `expect` function is used to define the expected output of the `sum` function, and the `toBe` or `toBeCloseTo` function is used to compare the expected output with the actual output of the `sum` function. 
+
+By running this test file with Jest, you can verify that the `sum` function works as expected for different inputs.
+
+
 3. Write integration tests: Integration tests are designed to test how different parts of your application work together. They can help you ensure that your application works as expected in real-world scenarios.
 
 4. Use a code coverage tool: Code coverage tools like Istanbul can help you ensure that your tests cover all parts of your code.
