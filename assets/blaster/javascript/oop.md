@@ -759,11 +759,155 @@ By returning an object with only the necessary methods, we can prevent external 
 
 
 
-## Polymorphism:
-- Understanding polymorphism in OOP
-- Implementing polymorphism using inheritance
-- Implementing polymorphism using interfaces
-- Benefits and drawbacks of polymorphism
+## Polymorphism
+
+
+Polymorphism refers to the ability of objects to take on different forms depending on the context in which they are used. In JavaScript, we can implement polymorphism using prototype inheritance and method overriding.
+
+### Classic Javascript
+
+To implement polymorphism in classic JS, we can create a parent class with a method, and then create multiple child classes that inherit from the parent class and override the method with their own implementation.
+
+For example, consider a Shape parent class with a draw() method:
+
+```javascript
+function Shape() {}
+
+Shape.prototype.draw = function() {
+  console.log('Drawing a shape');
+}
+```
+
+We can then create child classes, such as Circle and Rectangle, that inherit from the Shape class and override the draw() method with their own implementation:
+
+```javascript
+function Circle() {}
+
+Circle.prototype = Object.create(Shape.prototype);
+Circle.prototype.constructor = Circle;
+
+Circle.prototype.draw = function() {
+  console.log('Drawing a circle');
+}
+
+function Rectangle() {}
+
+Rectangle.prototype = Object.create(Shape.prototype);
+Rectangle.prototype.constructor = Rectangle;
+
+Rectangle.prototype.draw = function() {
+  console.log('Drawing a rectangle');
+}
+```
+
+Now we can create objects of the Circle and Rectangle classes and call their draw() methods, and each object will use its own implementation of the method:
+
+```javascript
+var circle = new Circle();
+circle.draw(); // Output: "Drawing a circle"
+
+var rectangle = new Rectangle();
+rectangle.draw(); // Output: "Drawing a rectangle"
+```
+
+This shows how we can achieve polymorphism in classic JS by using prototype inheritance and method overriding. However, it can be more complex and error-prone than using classes and inheritance in modern JS.
+
+### ES6
+
+In ES6, polymorphism can be implemented using classes and method overriding. Polymorphism is the ability of objects of different classes to be used interchangeably. In ES6, you can define a base class with some common methods and properties, and then define derived classes that inherit from the base class.
+
+To implement polymorphism in ES6, you can define a base class with some common methods and properties, and then define derived classes that inherit from the base class. The derived classes can override the base class methods with their own implementations, providing different behavior for different objects.
+
+Here is an example:
+
+```javascript
+class Shape {
+  constructor(name) {
+    this.name = name;
+  }
+  draw() {
+    console.log(`Drawing ${this.name}`);
+  }
+}
+
+class Circle extends Shape {
+  constructor(radius) {
+    super("circle");
+    this.radius = radius;
+  }
+  draw() {
+    console.log(`Drawing a ${this.name} with radius ${this.radius}`);
+  }
+}
+
+class Square extends Shape {
+  constructor(side) {
+    super("square");
+    this.side = side;
+  }
+  draw() {
+    console.log(`Drawing a ${this.name} with side ${this.side}`);
+  }
+}
+
+const shapes = [new Circle(5), new Square(10)];
+shapes.forEach(shape => shape.draw());
+```
+
+In this example, we define a base class `Shape` with a `draw` method, and two derived classes `Circle` and `Square` that inherit from the `Shape` class. Each derived class has its own implementation of the `draw` method. Finally, we create an array of shapes and call the `draw` method for each shape, and each shape draws itself differently depending on its type.
+
+By using polymorphism, we can write code that can work with different types of objects without knowing their specific types in advance, which makes our code more flexible and easier to maintain.
+
+
+### Implementing polymorphism emulating interfaces in ES6
+
+In JavaScript, there are no built-in interfaces like in some other object-oriented programming languages. However, you can implement polymorphism using a concept similar to interfaces. 
+
+An interface defines a contract that classes must adhere to, specifying the properties and methods that a class must implement. In JavaScript, we can use an object to define an interface. To implement this interface, a class must have methods that match the methods specified in the interface.
+
+Here's an example of implementing polymorphism using an interface in JavaScript:
+
+```javascript
+// Define the interface
+const Shape = {
+  calculateArea() {}
+};
+
+// Implement the interface in a class
+class Rectangle {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+  }
+
+  calculateArea() {
+    return this.width * this.height;
+  }
+}
+
+class Circle {
+  constructor(radius) {
+    this.radius = radius;
+  }
+
+  calculateArea() {
+    return Math.PI * this.radius ** 2;
+  }
+}
+
+// Use the classes polymorphically
+function printArea(shape) {
+  console.log(`The area is ${shape.calculateArea()}`);
+}
+
+const rectangle = new Rectangle(5, 10);
+const circle = new Circle(7);
+
+printArea(rectangle); // The area is 50
+printArea(circle); // The area is 153.93804002589985
+```
+
+In this example, we define an interface `Shape` with a method `calculateArea`. We then implement this interface in two classes, `Rectangle` and `Circle`. Both classes have a `calculateArea` method that calculates the area of the shape, but they do it differently depending on their shape. Finally, we use the `printArea` function to print the area of the different shapes, polymorphically using the `calculateArea` method from the interface.
 
 ## Design Patterns:
 - Understanding design patterns in OOP
