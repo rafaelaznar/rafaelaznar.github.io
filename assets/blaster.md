@@ -16,6 +16,8 @@ BLASTER stands for let's Build, Learn And Share all TogethER
 
 [WildCart](blaster/wildcart.md)
 
+[GPT-notes](blaster/notes.md)
+
 
 
 
