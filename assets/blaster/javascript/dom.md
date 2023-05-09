@@ -51,3 +51,87 @@ The root of the DOM tree is called the "document object", which represents the e
 The relationship between nodes in the DOM is defined by the parent-child relationship. Each node has a parent node, except for the document object which is the root of the tree. Nodes can also have sibling nodes, which are other nodes that share the same parent.
 
 One of the primary purposes of the DOM is to allow developers to access and manipulate the contents of a web page using JavaScript. By using the methods and properties provided by the DOM API, developers can traverse the DOM tree, modify the contents of individual nodes, and add or remove nodes from the tree. This makes it possible to create dynamic, interactive web pages that respond to user input and events.
+
+
+## Display information
+
+To display information in an HTML page using ES6 JavaScript, you can use several methods.
+
+### DOM Manipulation
+
+
+Using DOM Manipulation: You can create an HTML element using JavaScript and then add it to the document. For example, to display a message on a web page, you can create a new `p` element and then add it to the `body` of the document:
+
+```javascript
+const message = "Hello World!";
+const para = document.createElement("p");
+para.innerText = message;
+document.body.appendChild(para);
+```
+
+Here's an example of creating a table dynamically using ES6 JavaScript to display data:
+
+HTML code:
+```html
+<table id="data-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+```
+
+JavaScript code:
+```javascript
+// Data to be displayed
+const data = [
+  { name: 'John', age: 25, location: 'New York' },
+  { name: 'Jane', age: 30, location: 'Los Angeles' },
+  { name: 'Mark', age: 35, location: 'Chicago' },
+  { name: 'Emily', age: 40, location: 'San Francisco' }
+];
+
+// Function to create table rows
+const createTableRow = (rowData) => {
+  const row = document.createElement('tr');
+  const nameCell = document.createElement('td');
+  const ageCell = document.createElement('td');
+  const locationCell = document.createElement('td');
+
+  nameCell.textContent = rowData.name;
+  ageCell.textContent = rowData.age;
+  locationCell.textContent = rowData.location;
+
+  row.appendChild(nameCell);
+  row.appendChild(ageCell);
+  row.appendChild(locationCell);
+
+  return row;
+};
+
+// Function to add data to table
+const addDataToTable = (data) => {
+  const tableBody = document.querySelector('#data-table tbody');
+
+  data.forEach((rowData) => {
+    const row = createTableRow(rowData);
+    tableBody.appendChild(row);
+  });
+};
+
+// Call function to add data to table
+addDataToTable(data);
+```
+
+In this example, we first define the data to be displayed in the table. We then create a `createTableRow` function that takes in a row of data and returns a `tr` element containing the appropriate `td` elements populated with the data. We then define an `addDataToTable` function that takes in the data array, loops over it, and appends each row to the table body.
+
+Finally, we call the `addDataToTable` function with the `data` array to display the data in the table on the HTML page.
+
+
+
+
