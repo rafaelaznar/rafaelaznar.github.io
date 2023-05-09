@@ -295,6 +295,45 @@ button.removeEventListener('click', handleClick);
 
 In the example above, the `removeEventListener()` method is used to remove the `handleClick()` function as the event listener for the click event on the button element.
 
+`addEventListener` is a method used to attach an event listener to a DOM element. The first parameter of this method is the event type that the listener should listen for. There are many different event types that can be listened for using `addEventListener`. Here are some commonly used ones:
+
+1. `"click"`: Fired when the user clicks the element.
+2. `"mouseenter"`: Fired when the mouse enters the element.
+3. `"mouseleave"`: Fired when the mouse leaves the element.
+4. `"submit"`: Fired when a form is submitted.
+5. `"keydown"`: Fired when a key on the keyboard is pressed down.
+6. `"keyup"`: Fired when a key on the keyboard is released.
+7. `"load"`: Fired when the element (e.g. an image) has finished loading.
+8. `"error"`: Fired when an error occurs while loading the element.
+
+There are many other event types that can be used with `addEventListener`. The full list can be found in the MDN Web Docs.
+
+
+Here's another example:
+
+HTML:
+```
+<input type="text" id="input" placeholder="Type something...">
+<div id="output"></div>
+```
+
+JavaScript:
+```
+const input = document.getElementById('input');
+const output = document.getElementById('output');
+
+input.addEventListener('input', () => {
+  output.textContent = input.value;
+});
+```
+
+In this example, we get references to the input and output elements using `document.getElementById`. Then we add an event listener to the input element using `addEventListener`. The event listener listens for the "input" event and updates the content of the output element with the value of the input element using `input.value`. The `textContent` property is used to set the text content of the output element.
+
+With this code, whenever the user types something into the input element, the content of the output element will be updated in real time.
+
+
+
+
 Here is an example of handling a submit event on a login form with simple validations using ES6:
 
 HTML:
