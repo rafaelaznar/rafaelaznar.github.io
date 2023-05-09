@@ -332,7 +332,25 @@ In this example, we get references to the input and output elements using `docum
 With this code, whenever the user types something into the input element, the content of the output element will be updated in real time.
 
 
+Here's another example modifying DOM node atribbutes:
 
+HTML:
+```html
+<button id="myButton">Click me!</button>
+<p id="myParagraph">This is a paragraph.</p>
+```
+
+JavaScript:
+```javascript
+const myButton = document.getElementById('myButton');
+const myParagraph = document.getElementById('myParagraph');
+
+myButton.addEventListener('click', function() {
+  myParagraph.setAttribute('style', 'color: red; font-weight: bold;');
+});
+```
+
+In this example, we have a button with an id of "myButton" and a paragraph with an id of "myParagraph". When the button is clicked, we use the `addEventListener` method to attach a click event handler function to the button. Inside the event handler function, we use the `setAttribute` method to modify the style attribute of the paragraph element, changing the text color to red and the font weight to bold. This changes the appearance of the paragraph text when the button is clicked.
 
 Here is an example of handling a submit event on a login form with simple validations using ES6:
 
