@@ -53,7 +53,7 @@ The relationship between nodes in the DOM is defined by the parent-child relatio
 One of the primary purposes of the DOM is to allow developers to access and manipulate the contents of a web page using JavaScript. By using the methods and properties provided by the DOM API, developers can traverse the DOM tree, modify the contents of individual nodes, and add or remove nodes from the tree. This makes it possible to create dynamic, interactive web pages that respond to user input and events.
 
 
-## Display information
+## DOM manipulation
 
 ### createElement(), setAttribute(), appendChild()
 
@@ -262,6 +262,110 @@ We then define a function called `renderRows` that takes an array of data and lo
 
 To initially render the table rows, we call the `renderRows` function with the `data` array. To update the table with new data, we simply call the function again with the `newData` array. The `innerHTML` property is then automatically updated with the new HTML, replacing the old table rows with the new ones.
 
+
+## Handling events
+
+In ES6, you can handle DOM events using the `addEventListener()` method. This method allows you to register an event listener on a DOM element, which listens for a particular event and executes a specified function when the event is triggered.
+
+Here is an example of using `addEventListener()` to handle a click event on a button:
+
+```javascript
+const button = document.querySelector('#myButton');
+
+button.addEventListener('click', () => {
+  console.log('Button clicked');
+});
+```
+
+In the example above, the `querySelector()` method is used to select the button element with an ID of "myButton". Then, the `addEventListener()` method is used to register a click event listener on the button. When the button is clicked, the arrow function is executed and the message "Button clicked" is logged to the console.
+
+You can also use `removeEventListener()` to remove an event listener from a DOM element. This method takes two arguments: the type of event to remove and the function that was registered as the event listener.
+
+```javascript
+const button = document.querySelector('#myButton');
+const handleClick = () => {
+  console.log('Button clicked');
+};
+
+button.addEventListener('click', handleClick);
+
+// Remove the event listener
+button.removeEventListener('click', handleClick);
+```
+
+In the example above, the `removeEventListener()` method is used to remove the `handleClick()` function as the event listener for the click event on the button element.
+
+Here is an example of handling a submit event on a login form with simple validations using ES6:
+
+HTML:
+
+```html
+<form id="login-form">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required>
+  <br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required>
+  <br>
+  <input type="submit" value="Login">
+</form>
+<p id="error-msg"></p>
+```
+
+JavaScript:
+
+```javascript
+const loginForm = document.getElementById('login-form');
+const errorMsg = document.getElementById('error-msg');
+
+loginForm.addEventListener('submit', (event) => {
+  event.preventDefault(); // Prevent form from submitting
+  const username = event.target.username.value;
+  const password = event.target.password.value;
+
+  // Validate input
+  if (!username || !password) {
+    errorMsg.textContent = 'Please enter both username and password';
+    return;
+  }
+
+  // Make API request to authenticate user
+  authenticateUser(username, password)
+    .then(() => {
+      // Redirect user to home page upon successful authentication
+      window.location.href = 'home.html';
+    })
+    .catch(() => {
+      // Display error message if authentication fails
+      errorMsg.textContent = 'Invalid username or password';
+    });
+});
+
+function authenticateUser(username, password) {
+  // Make API request to authenticate user
+  // Return a Promise that resolves if authentication is successful,
+  // and rejects if authentication fails
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (username === 'johndoe' && password === 'password123') {
+        resolve();
+      } else {
+        reject();
+      }
+    }, 1000); // Simulate API request delay
+  });
+}
+```
+
+In this example, we first get references to the login form and the error message element using `document.getElementById()`. We then add a submit event listener to the form using `addEventListener()`.
+
+When the form is submitted, we prevent the default form submission behavior using `event.preventDefault()`, and extract the values of the username and password fields using `event.target.username.value` and `event.target.password.value`.
+
+We then validate the input by checking if both fields are non-empty. If either field is empty, we display an error message in the `errorMsg` element using `textContent`.
+
+If both fields are non-empty, we make an API request to authenticate the user using the `authenticateUser()` function, which returns a Promise. If the authentication is successful, we redirect the user to the home page using `window.location.href`. If the authentication fails, we display an error message in the `errorMsg` element.
+
+In this example, we also simulate a delay in the API request using `setTimeout()` to demonstrate the use of Promises.
 
 
 
