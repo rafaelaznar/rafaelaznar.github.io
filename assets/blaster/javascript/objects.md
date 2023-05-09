@@ -22,21 +22,21 @@ Here are some key features of arrays in JavaScript:
 
 1. Declaration: Arrays can be declared using either array literals or the `Array` constructor. For example:
 
-```
+```javascript
 let myArray = [1, 2, 3];
 let myArray2 = new Array(1, 2, 3);
 ```
 
 2. Accessing elements: You can access individual elements of an array using square brackets notation and the zero-based index of the element. For example:
 
-```
+```javascript
 let myArray = ['apple', 'banana', 'orange'];
 console.log(myArray[0]); // Output: 'apple'
 ```
 
 3. Modifying elements: You can modify individual elements of an array using square brackets notation and the zero-based index of the element. For example:
 
-```
+```javascript
 let myArray = ['apple', 'banana', 'orange'];
 myArray[0] = 'pear';
 console.log(myArray); // Output: ['pear', 'banana', 'orange']
@@ -44,14 +44,14 @@ console.log(myArray); // Output: ['pear', 'banana', 'orange']
 
 4. Array length: You can determine the length of an array using the `length` property. For example:
 
-```
+```javascript
 let myArray = [1, 2, 3];
 console.log(myArray.length); // Output: 3
 ```
 
 5. Adding and removing elements: You can add or remove elements from an array using various methods such as `push()`, `pop()`, `shift()`, `unshift()`, `splice()`, etc. For example:
 
-```
+```javascript
 let myArray = ['apple', 'banana', 'orange'];
 myArray.push('pear');
 console.log(myArray); // Output: ['apple', 'banana', 'orange', 'pear']
@@ -62,7 +62,7 @@ console.log(myArray); // Output: ['apple', 'banana', 'orange']
 
 6. Iteration: You can iterate over the elements of an array using various methods such as `for` loop, `forEach()`, `map()`, `filter()`, `reduce()`, etc. For example:
 
-```
+```javascript
 let myArray = [1, 2, 3];
 for (let i = 0; i < myArray.length; i++) {
   console.log(myArray[i]);
@@ -90,7 +90,7 @@ Some of the most commonly used methods of the Object include:
 
 Here is an example of creating an object using the Object constructor:
 
-```
+```javascript
 const person = new Object();
 person.name = 'John';
 person.age = 30;
@@ -122,7 +122,7 @@ Here are some of the most commonly used methods of the String object:
 
 Here is an example of using some of these methods:
 
-```
+```javascript
 const str = 'Hello, World!';
 
 console.log(str.charAt(0)); // 'H'
@@ -171,13 +171,13 @@ The Boolean object can be created using the Boolean() constructor or by using a 
 
 Example of creating a Boolean object:
 
-```
+```javascript
 const boolObj = new Boolean(true);
 ```
 
 Example of using a boolean literal:
 
-```
+```javascript
 const bool = true;
 ```
 
@@ -190,7 +190,7 @@ The Boolean object has a few properties and methods, such as:
 
 Example usage:
 
-```
+```javascript
 const boolObj = new Boolean(true);
 console.log(boolObj.toString()); // "true"
 console.log(boolObj.valueOf()); // true
@@ -206,7 +206,7 @@ To create a `Date` object, you can use the `new Date()` constructor, which takes
 
 Here's an example of creating a `Date` object:
 
-```
+```javascript
 const now = new Date(); // current date and time
 ```
 
@@ -228,7 +228,7 @@ The `Date` object has many properties and methods for working with dates and tim
 
 Here's an example of using some of these methods:
 
-```
+```javascript
 const now = new Date();
 const year = now.getFullYear();
 const month = now.getMonth();
@@ -243,7 +243,7 @@ The `Date` object also provides methods for formatting dates and times, such as 
 
 Here's an example of using `toLocaleString()`:
 
-```
+```javascript
 const now = new Date();
 const dateString = now.toLocaleString('en-US', {
   weekday: 'long',
