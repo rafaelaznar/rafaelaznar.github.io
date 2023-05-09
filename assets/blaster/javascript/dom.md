@@ -55,12 +55,34 @@ One of the primary purposes of the DOM is to allow developers to access and mani
 
 ## Display information
 
-To display information in an HTML page using ES6 JavaScript, you can use several methods.
+### createElement(), setAttribute(), appendChild()
 
-### DOM Manipulation
+In JavaScript, the `createElement` method is used to create an HTML element dynamically. This method is available on the `document` object in the browser and can be used to create any HTML element, such as `div`, `p`, `img`, `input`, etc.
 
+The `createElement` method accepts a single argument, which is the tag name of the element to be created. For example, if you want to create a `div` element, you would call `document.createElement('div')`.
 
-Using DOM Manipulation: You can create an HTML element using JavaScript and then add it to the document. For example, to display a message on a web page, you can create a new `p` element and then add it to the `body` of the document:
+Once the element is created, you can manipulate its attributes and content using other DOM methods, such as `setAttribute`, `appendChild`, and `innerHTML`.
+
+Here's an example that creates a `div` element, sets its `id` and `class` attributes, and adds some text content to it:
+
+```javascript
+// Create a new div element
+const myDiv = document.createElement('div');
+
+// Set the id and class attributes
+myDiv.setAttribute('id', 'myDiv');
+myDiv.setAttribute('class', 'my-class');
+
+// Add some text content
+myDiv.innerHTML = 'Hello, world!';
+
+// Add the div to the body of the document
+document.body.appendChild(myDiv);
+```
+
+This code creates a new `div` element, sets its `id` and `class` attributes, adds some text content to it, and then appends it to the `body` of the document. The end result is a new `div` element with the text "Hello, world!" inside it.
+
+Another example. To display a message on a web page, you can create a new `p` element and then add it to the `body` of the document:
 
 ```javascript
 const message = "Hello World!";
@@ -129,6 +151,48 @@ addDataToTable(data);
 ```
 
 In this example, we first define the data to be displayed in the table. We then create a `createTableRow` function that takes in a row of data and returns a `tr` element containing the appropriate `td` elements populated with the data. We then define an `addDataToTable` function that takes in the data array, loops over it, and appends each row to the table body.
+
+
+
+### innerHTML
+
+`innerHTML` is a property of a DOM element that can be set to a string of HTML code. When `innerHTML` is set, the existing content of the element is replaced with the new HTML code. For example:
+
+```html
+<div id="myDiv"></div>
+```
+
+```javascript
+const myDiv = document.getElementById('myDiv');
+myDiv.innerHTML = '<h1>Hello, world!</h1>';
+```
+
+The above code sets the `innerHTML` property of the `myDiv` element to a string containing an `h1` tag with the text "Hello, world!". The resulting HTML on the page will be:
+
+```html
+<div id="myDiv"><h1>Hello, world!</h1></div>
+```
+
+`createElement` and `appendChild`, on the other hand, allow you to create and add new DOM elements to the page **without replacing the existing content**. `createElement` is used to create a new element, which can then be appended to an existing element using `appendChild`. For example:
+
+```html
+<div id="myDiv"></div>
+```
+
+```javascript
+const myDiv = document.getElementById('myDiv');
+const heading = document.createElement('h1');
+heading.textContent = 'Hello, world!';
+myDiv.appendChild(heading);
+```
+
+The above code creates a new `h1` element, sets its text content to "Hello, world!", and then appends it to the `myDiv` element. The resulting HTML on the page will be:
+
+```html
+<div id="myDiv"><h1>Hello, world!</h1></div>
+```
+
+`createElement` and `appendChild` are often used together in JavaScript to dynamically create and add complex HTML content to a page. While `innerHTML` can be convenient for adding simple content to a page, using `createElement` and `appendChild` can give you more fine-grained control over the structure of your page's HTML. Additionally, using `createElement` and `appendChild` can be more performant than setting `innerHTML`, especially when working with large amounts of HTML content.
 
 Finally, we call the `addDataToTable` function with the `data` array to display the data in the table on the HTML page.
 
