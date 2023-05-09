@@ -91,7 +91,7 @@ para.innerText = message;
 document.body.appendChild(para);
 ```
 
-### selecting DOM objects
+### selecting DOM elements
 
 In JavaScript, there are several ways to select parts of the Document Object Model (DOM), which is the hierarchical representation of an HTML or XML document. Here are some of the most commonly used methods:
 
