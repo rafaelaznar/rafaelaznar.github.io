@@ -12,13 +12,6 @@
 
 
 
->### HIRE ME
->In addition to my teaching work, I carry out technical advice for companies: 
->- funcional analysis, 
->- process redesign, 
->- process optimization, 
->- development of management programs completely adapted to the needs of the client, using up to date technologies
->
->You can hire me remotely for very competitive fees.
+
 
 
