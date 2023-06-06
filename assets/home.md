@@ -10,6 +10,7 @@
 * enefteen: Learn asyncronous events while generate some funny NFTs. (finished-unreleased)
 * amoeba: Amoeba is just a genetic algorithm developed in java to aproximate points by functions. (finished-unreleased)
 * soccerpedia: Soccer scores analysis (finished-unreleased)
+* economics simulator: work in pregress
 
 <!--
 ## posts examples
