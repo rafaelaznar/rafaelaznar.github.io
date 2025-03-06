@@ -7,6 +7,7 @@
 * [VITEXTBI: A texts classifier & generator using Viterbi function (MIT)](https://rafaelaznar.github.io/vitextbi/)
 * [sorteo: An easy to use to draw (to raffle) prizes among some participants (MIT)](https://rafaelaznar.github.io/sorteo/)
 * [AES: Simple encrypter and decrypter (MIT)(use @ your own risk)](https://rafaelaznar.github.io/aes/)
+* [RSA key pair generator using window.crypto.subtle](https://rafaelaznar.github.io/RSAKeys/)
 * enefteen: Learn asyncronous events while generate some funny NFTs. (finished-unreleased)
 * amoeba: Amoeba is just a genetic algorithm developed in java to aproximate points by functions. (finished-unreleased)
 * soccerpedia: Soccer scores analysis (finished-unreleased)
