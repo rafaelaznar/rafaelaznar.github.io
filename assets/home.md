@@ -17,6 +17,7 @@
 * economics simulator: work in pregress
 
 <!--
+
 ## posts examples
 
 * [first post](posts/2023.01.23.01.md)
