@@ -17,6 +17,7 @@
 * economics simulator: work in pregress
 * [Reverse a file line by line](https://rafaelaznar.github.io/bottic/)
 * [EUR ↔ USD Converter](https://rafaelaznar.github.io/kalcedo/)
+* [Play with some amazing maze-solving algorithms](https://rafaelaznar.github.io/amazing-mazeing/)
 
 <!--
 
