@@ -15,6 +15,7 @@
 * amoeba: Amoeba is just a genetic algorithm developed in java to aproximate points by functions. (finished-unreleased)
 * soccerpedia: Soccer scores analysis (finished-unreleased)
 * economics simulator: work in pregress
+* [Reverse a file line by line](https://rafaelaznar.github.io/bottic/)
 
 <!--
 
