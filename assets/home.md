@@ -16,6 +16,7 @@
 * soccerpedia: Soccer scores analysis (finished-unreleased)
 * economics simulator: work in pregress
 * [Reverse a file line by line](https://rafaelaznar.github.io/bottic/)
+* [EUR ↔ USD Converter](https://rafaelaznar.github.io/kalcedo/)
 
 <!--
 
